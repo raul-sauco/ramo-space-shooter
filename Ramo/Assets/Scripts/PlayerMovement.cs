@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void FixedUpdate()
     {
-        Vector2 force = Vector2.up * joystick.Vertical + 
-            Vector2.right * joystick.Horizontal;
+        Vector2 force = Vector2.up * (joystick.Vertical + Input.GetAxisRaw("Vertical")) + 
+            Vector2.right * (joystick.Horizontal + Input.GetAxisRaw("Horizontal"));
         rb.AddForce(force * speed * Time.fixedDeltaTime, 
             ForceMode2D.Force);
     }

@@ -39,3 +39,21 @@ With these guidelines in place, I started looking at options.
 In this case, I think the visual part of the game is going to be very important, it makes sense to build the basic functionality first, without worrying too much about the looks, and then try imagery on to see what it looks like when the game is running.
 
 We will start by creating a `Player` GameObject and giving it a controller. From the beginning we are going to give the game a **mobile first** approach, so the game will get mobile controls and any actions available have to be operable by touch.
+
+The objective is to create a space shooter that runs in an open world where the player has to complete one mission per level. As the player approaches the level's objective, it will become harder to survive.
+
+## Work done.
+
+### Outline requirements.
+
+- The player's space fighter can decelerate or accelerate in 2D, while there is no player input, the spacecraft preserves its current speed.
+- Each level is an open world, the player can choose to get farther away from the objective.
+- Each level has an objective. Survival should get progressively harder as the player approaches the objective.
+- The camera uses the _perspective_ view, to give some depth to the game. But all game interactions happen on `z=0` making it a 2D game.
+- Background is auto-generated.
+
+## Attributions.
+
+## Assets.
+
+The player's space fighter was crafted by [Devekros](https://assetstore.unity.com/publishers/34228) and it is available at [this link](https://assetstore.unity.com/packages/3d/vehicles/space/space-shuttle-of-the-future-111392) in the Unity Asset Store.

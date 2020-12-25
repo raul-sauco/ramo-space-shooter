@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 582fba70b53e78845937a49181382e1f
+timeCreated: 1517583454
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bone
+    100004: Chassis1
+    100006: Chassis1_end
+    100008: Chassis2.1.L
+    100010: Chassis2.1.R
+    100012: Chassis2.2.L
+    100014: Chassis2.2.L_end
+    100016: Chassis2.2.R
+    100018: Chassis2.2.R_end
+    100020: Door1.L
+    100022: Door1.L_end
+    100024: Door1.R
+    100026: Door1.R_end
+    100028: Door2.1.L
+    100030: Door2.1.L_end
+    100032: Door2.1.R
+    100034: Door2.1.R_end
+    100036: Door2.2.L
+    100038: Door2.2.L_end
+    100040: Door2.2.R
+    100042: Door2.2.R_end
+    100044: SpaceShuttle
+    100046: SpaceShuttleModel
+    100048: Armatude
+    100050: Cage
+    100052: Cage_Other
+    100054: Hight
+    100056: Hight_MeshPart0
+    100058: Hight_MeshPart1
+    400000: //RootNode
+    400002: Bone
+    400004: Chassis1
+    400006: Chassis1_end
+    400008: Chassis2.1.L
+    400010: Chassis2.1.R
+    400012: Chassis2.2.L
+    400014: Chassis2.2.L_end
+    400016: Chassis2.2.R
+    400018: Chassis2.2.R_end
+    400020: Door1.L
+    400022: Door1.L_end
+    400024: Door1.R
+    400026: Door1.R_end
+    400028: Door2.1.L
+    400030: Door2.1.L_end
+    400032: Door2.1.R
+    400034: Door2.1.R_end
+    400036: Door2.2.L
+    400038: Door2.2.L_end
+    400040: Door2.2.R
+    400042: Door2.2.R_end
+    400044: SpaceShuttle
+    400046: SpaceShuttleModel
+    400048: Armatude
+    400050: Cage
+    400052: Cage_Other
+    400054: Hight
+    400056: Hight_MeshPart0
+    400058: Hight_MeshPart1
+    2300000: //RootNode
+    2300002: Cage
+    2300004: Cage_Other
+    2300006: Hight_MeshPart0
+    2300008: Hight_MeshPart1
+    3300000: //RootNode
+    3300002: Cage
+    3300004: Cage_Other
+    3300006: Hight_MeshPart0
+    3300008: Hight_MeshPart1
+    4300000: Lowpoly
+    4300002: Low
+    4300004: SpaceShuttleModel
+    4300006: SpaceShuttle
+    4300008: Cage_Other
+    4300010: Cage
+    4300012: Hight_MeshPart0
+    4300014: Hight_MeshPart1
+    7400000: SpaceShuttle|AnimationChassis
+    7400002: Armatude|AnimationChassis
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: SpaceShuttleModel
+    13700002: SpaceShuttle
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
