@@ -54,6 +54,12 @@ The objective is to create a space shooter that runs in an open world where the 
 
 ## Attributions.
 
-## Assets.
+### Assets.
 
 The player's space fighter was crafted by [Devekros](https://assetstore.unity.com/publishers/34228) and it is available at [this link](https://assetstore.unity.com/packages/3d/vehicles/space/space-shuttle-of-the-future-111392) in the Unity Asset Store.
+
+### References.
+
+Scrolling star background [video tutorial](https://www.youtube.com/watch?v=nGw_UBJQPDY).
+
+Cinemachine [video tutorial](https://www.youtube.com/watch?v=2jTY11Am0Ig).
