@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 /// <summary>
@@ -8,7 +7,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Joystick joystick;
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 300f;
+    [SerializeField] private float maxVelocity = 10.0f;
     
     private Rigidbody2D rb;
 
@@ -20,9 +20,28 @@ public class PlayerMovement : MonoBehaviour
 
     public void FixedUpdate()
     {
-        Vector2 force = Vector2.up * (joystick.Vertical + Input.GetAxisRaw("Vertical")) + 
-            Vector2.right * (joystick.Horizontal + Input.GetAxisRaw("Horizontal"));
-        rb.AddForce(force * speed * Time.fixedDeltaTime, 
+        rb.AddForce(
+            new Vector2(calculateForceX(), calculateForceY()) * speed * Time.fixedDeltaTime, 
             ForceMode2D.Force);
+    }
+
+    private float calculateForceY()
+    {
+        var push = joystick.Vertical + Input.GetAxisRaw("Vertical");
+        if (push > 0 && rb.velocity.y < maxVelocity)
+            return push;
+        if (push < 0 && rb.velocity.y > (-1 * maxVelocity))
+            return push;
+        return 0;
+    }
+
+    private float calculateForceX()
+    {
+        var push = joystick.Horizontal + Input.GetAxisRaw("Horizontal");
+        if (push > 0 && rb.velocity.x < maxVelocity)
+            return push;
+        if (push < 0 && rb.velocity.x > (-1 * maxVelocity))
+            return push;
+        return 0;
     }
 }
