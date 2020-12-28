@@ -10,19 +10,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 300f;
     [SerializeField] private float maxVelocity = 10.0f;
     
-    private Rigidbody2D rb;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody>();   
     }
 
     public void FixedUpdate()
     {
         rb.AddForce(
             new Vector2(calculateForceX(), calculateForceY()) * speed * Time.fixedDeltaTime, 
-            ForceMode2D.Force);
+            ForceMode.Force);
     }
 
     private float calculateForceY()
