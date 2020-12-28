@@ -1,24 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject explossionPrefab;
+
+    private bool isActive;
+    private GameObject explossionFx;
+
     void Start()
     {
-        
+        isActive = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
         Debug.Log("Collided");
-        Debug.Log("Collided with " + GetComponent<Collider>().gameObject.tag);
+        Debug.Log("Collided with " + collider.gameObject.tag);
+        if (isActive) {
+            isActive = false;
+            Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 4);
+            transform.localScale = new Vector3(0,0,0);
+            explossionFx = Instantiate(explossionPrefab, position, transform.rotation);
+            Invoke(nameof(DestroyExplossionFx), 2);
+        }
+    }
+
+    private void DestroyExplossionFx()
+    {
+        GameObject.Destroy(explossionFx);
     }
 }
