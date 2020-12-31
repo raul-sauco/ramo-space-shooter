@@ -14,8 +14,6 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("Collided");
-        Debug.Log("Collided with " + collider.gameObject.tag);
         if (isActive) {
             isActive = false;
             Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 4);
@@ -27,6 +25,6 @@ public class Player : MonoBehaviour
 
     private void DestroyExplossionFx()
     {
-        GameObject.Destroy(explossionFx);
+        Destroy(explossionFx);
     }
 }
