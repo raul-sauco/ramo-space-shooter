@@ -18,6 +18,8 @@ public class Capsule : MonoBehaviour
         if (collider.gameObject.tag == "PlayerAttack" && isActive) {
             isActive = false;
             transform.localScale = new Vector3(0,0,0);
+            // Avoid collisions with the player
+            transform.position += new Vector3(0f, 0f, 5f);
             GameObject halo = transform.Find("Halo").gameObject;
             if (halo != null)
                 Destroy(halo);
