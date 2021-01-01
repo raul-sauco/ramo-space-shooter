@@ -8,6 +8,7 @@ TagManager:
   - Capsule
   - PlayerAttack
   - Boss
+  - Enemy
   layers:
   - Default
   - TransparentFX
