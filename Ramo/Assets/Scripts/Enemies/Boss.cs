@@ -1,24 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
+/// <summary>
+/// Manages a boss type enemy.
+/// </summary>
 public class Boss : MonoBehaviour
 {
     [SerializeField] private GameObject explossionPrefab;
+    [SerializeField] private GameObject healthBar;
     [SerializeField] private float offsetX = 20f;
     [SerializeField] private float smoothSpeed = 0.1f;
     [SerializeField] private float activationDistance = 40f;
-    [SerializeField] private float totalLife = 100f;
+    [SerializeField] private float health = 100f;
     [SerializeField] private float hitDamage = 5f;
 
     private Transform playerTransform;
     private bool isActive;
     private GameObject explossionFx;
+    private float startHealth;
+
+    // Add two flags to optimize health bar color changes.
+    private bool isOrange = false;
+    private bool isRed = false;
 
     // Start is called before the first frame update
     void Start()
     {
         isActive = false;
+        startHealth = health;
         GameObject go = GameObject.Find("Player");
         if (go != null)
             playerTransform = go.transform;
@@ -61,10 +70,26 @@ public class Boss : MonoBehaviour
 
     private void TakeDamage()
     {
-        totalLife -= hitDamage;
-        Debug.Log("Remaining life " + totalLife);
-        if (totalLife < 0)
+        health -= hitDamage;
+        float remainingHealth = health / startHealth;
+        ColorizeHealthBar(remainingHealth);
+        healthBar.transform.localScale = new Vector3(remainingHealth, 1f, 1f);
+        if (health < 0)
             DestroySelf();
+    }
+
+    private void ColorizeHealthBar(float remainingHealth)
+    {
+        // Do nothing while above first threshold
+        if (remainingHealth < 0.5 && remainingHealth > 0.2 && !isOrange)
+        {
+            healthBar.GetComponent<Image>().color = new Color32(255, 140, 0, 255);
+            isOrange = true;
+        } else if (remainingHealth < 0.2 && !isRed)
+        {
+            healthBar.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+            isRed = true;
+        }
     }
 
     private void DestroySelf()
