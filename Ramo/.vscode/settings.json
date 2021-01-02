@@ -59,8 +59,15 @@
         "**/Temp": true
     },
     "cSpell.words": [
+        "Astar",
         "Behaviour",
+        "Cinemachine",
+        "Devekros",
+        "Mathf",
         "Sakari",
-        "Scroller"
+        "Scroller",
+        "pathfinding",
+        "platformer",
+        "powerups"
     ]
 }

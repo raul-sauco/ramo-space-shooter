@@ -42,6 +42,8 @@ We will start by creating a `Player` GameObject and giving it a controller. From
 
 The objective is to create a space shooter that runs in an open world where the player has to complete one mission per level. As the player approaches the level's objective, it will become harder to survive.
 
+Levels should be progressively harder. The player should be able to learn about the enemies in earlier levels to help survive later levels.
+
 ## Work done.
 
 ### Outline requirements.
@@ -51,15 +53,68 @@ The objective is to create a space shooter that runs in an open world where the 
 - Each level has an objective. Survival should get progressively harder as the player approaches the objective.
 - The camera uses the _perspective_ view, to give some depth to the game. But all game interactions happen on `z=0` making it a 2D game.
 - Background is auto-generated.
+- Enemies, except for the level's _boss_ are auto-generated.
+
+### Star background.
+
+The objective is to have a multi-layer star background that gives an impression of depth, we are in space after all!
+
+The game has two star backgrounds that are children of the main camera, since the camera follows the player, the background also does. To make a _parallax_ effect, we can use the material's offset thus:
+
+```c#
+void Update()
+{
+    MeshRenderer mr = GetComponent<MeshRenderer>();
+    Material material = mr.material;
+    Vector2 offset = material.mainTextureOffset;
+    offset.x = transform.position.x / transform.localScale.x * parallax;
+    offset.y = transform.position.y / transform.localScale.y * parallax;
+    material.mainTextureOffset = offset;
+}
+```
+
+The `parallax` variable is editable from within the inspector, giving it different values, we can adjust the speed of each _layer_ until it feels adequate.
+
+The star background was inspired by this [video tutorial][1].
+
+### World navigation.
+
+The game aims to be a side-scroller space-shooter with a twist, part of that twist is that the game takes place in an open world, I think that could let us add some interesting updates later on, for example, different missions inside one level.
+
+At the moment, each level only has one mission, _find the boss and destroy it_, since the play takes place in an open world, we need to give the player some help accomplishing the task, some indication of wherein lays the _boss_, we can use an on-screen arrow that points in the bosses' direction to accomplish that. The result will look as follows:
+
+// TODO screen capture with arrow here.
+
+### Enemies.
+
+The types of enemies that we will encounter on the level can be classified in two groups, regular enemies and bosses.
+
+#### Regular enemies.
+
+This enemies are spawned at random intervals by a _spawner_ game object that stays slightly ahead of the player as she moves through the level.
+
+The spawner is slightly bigger than the screen height and spawns elements at random intervals, within a range, and at random points of the _quad_ element that it is made of. The spawning rate range can be adjusted from the editor to make levels progressively harder.
+
+The _basic_ regular enemies are capsule shaped ships that do not fire any shots and just try to collide with the player character. This characters use the [Astar project][5] for pathfinding.
+
+#### Bosses.
+
+TODO fill this up.
 
 ## Attributions.
 
 ### Assets.
 
-The player's space fighter was crafted by [Devekros](https://assetstore.unity.com/publishers/34228) and it is available at [this link](https://assetstore.unity.com/packages/3d/vehicles/space/space-shuttle-of-the-future-111392) in the Unity Asset Store.
+The player's space fighter was crafted by [Devekros][3] and it is available at [this link][4] in the Unity Asset Store.
 
 ### References.
 
-Scrolling star background [video tutorial](https://www.youtube.com/watch?v=nGw_UBJQPDY).
+Scrolling star background [video tutorial][1].  
+Cinemachine [video tutorial][2].  
+Astar project [website][5].
 
-Cinemachine [video tutorial](https://www.youtube.com/watch?v=2jTY11Am0Ig).
+[1]: https://www.youtube.com/watch?v=nGw_UBJQPDY
+[2]: https://www.youtube.com/watch?v=2jTY11Am0Ig
+[3]: https://assetstore.unity.com/publishers/34228
+[4]: https://assetstore.unity.com/packages/3d/vehicles/space/space-shuttle-of-the-future-111392
+[5]: https://arongranberg.com/astar/

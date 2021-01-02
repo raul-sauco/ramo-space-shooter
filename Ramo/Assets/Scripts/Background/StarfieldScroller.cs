@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
 /// Controls the scrolling of the starfield background.
+/// </summary>
 public class StarfieldScroller : MonoBehaviour
 {
     [SerializeField] private float parallax = .001f;
