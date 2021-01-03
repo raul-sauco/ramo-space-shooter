@@ -9,6 +9,7 @@ TagManager:
   - PlayerAttack
   - Boss
   - Enemy
+  - PauseOverlay
   layers:
   - Default
   - TransparentFX

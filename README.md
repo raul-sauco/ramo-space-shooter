@@ -101,6 +101,20 @@ The _basic_ regular enemies are capsule shaped ships that do not fire any shots 
 
 TODO fill this up.
 
+### User interface.
+
+TODO
+
+I thought the method in this video was good, easy to see your UI without having it sit on top of the scene.
+
+https://www.youtube.com/watch?v=VHFJgQraVUs
+
+And this for a menu 
+
+https://www.youtube.com/watch?v=zc8ac_qUXQY
+
+And this is cool to pause time : https://gamedevbeginner.com/the-right-way-to-pause-the-game-in-unity/
+
 ## Attributions.
 
 ### Assets.
