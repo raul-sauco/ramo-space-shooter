@@ -103,32 +103,50 @@ TODO fill this up.
 
 ### User interface.
 
-TODO
+#### Start menu.
 
-I thought the method in this video was good, easy to see your UI without having it sit on top of the scene.
+At the start of the game, is good to offer a simple interface that entices users to start the game as quick as possible. I opted for a simple interface with two options, _play_ and _quit_ and some special effects, like a point light that moves around the scene to give the impression of time moving.
 
-https://www.youtube.com/watch?v=VHFJgQraVUs
+![Main menu](./res/main-menu.png)
 
-And this for a menu 
+#### Pause overlay.
 
-https://www.youtube.com/watch?v=zc8ac_qUXQY
+During the development of this game, I learnt that [we can use `Time.timeScale`][8] as an easy way to pause any game activities that are related with game time, which in this game means all of the activities, effectively giving us a way to pause/restart the game using one line of code.
 
-And this is cool to pause time : https://gamedevbeginner.com/the-right-way-to-pause-the-game-in-unity/
+```c#
+Time.timeScale = 0;
+```
+
+An overlay was used to present the user with the _pause_ options, namely **quit** and **start**.
+
+![Pause Overlay](./res/pause-overlay.png)
+
+The game is paused while the screen is visible. In **mobile** clicking the back button triggers the pause.
 
 ## Attributions.
 
 ### Assets.
 
-The player's space fighter was crafted by [Devekros][3] and it is available at [this link][4] in the Unity Asset Store.
+The player's **space fighter** was crafted by [Devekros][3] and it is available at [this link][4] in the Unity Asset Store.  
+The built in **UI elements** come from the [Techno Blue GUI Skin asset][9] on the asset store. The custom text was created following this [video tutorial][7].
 
 ### References.
 
 Scrolling star background [video tutorial][1].  
 Cinemachine [video tutorial][2].  
-Astar project [website][5].
+Astar project [website][5].  
+UI using _screen camera_ instead of _screen overlay_ [tutorial][6]. Removes clutter while developing.  
+Nice gradient for menu text on this [tutorial][7].  
+Using `Time.timeScale` to [pause the game][8].  
+Touch controls [tutorial][10].
 
 [1]: https://www.youtube.com/watch?v=nGw_UBJQPDY
 [2]: https://www.youtube.com/watch?v=2jTY11Am0Ig
 [3]: https://assetstore.unity.com/publishers/34228
 [4]: https://assetstore.unity.com/packages/3d/vehicles/space/space-shuttle-of-the-future-111392
 [5]: https://arongranberg.com/astar/
+[6]: https://www.youtube.com/watch?v=VHFJgQraVUs
+[7]: https://www.youtube.com/watch?v=zc8ac_qUXQY
+[8]: https://gamedevbeginner.com/the-right-way-to-pause-the-game-in-unity/
+[9]: https://assetstore.unity.com/packages/2d/gui/techno-blue-gui-skin-19115
+[10]: https://www.youtube.com/watch?v=bp2PiFC9sSs

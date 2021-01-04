@@ -12,6 +12,18 @@ public class PlayerWeapons : MonoBehaviour
         {
             Shoot();
         }
+
+        // Enable mobile
+        if (Input.touchCount > 0)
+        {
+            // Do something
+            Touch touch = Input.GetTouch(0);
+            if (touch.position.x > Screen.width / 2)
+            {
+                Debug.Log("Shooting by touch");
+                Shoot();
+            }
+        }
     }
 
     private void Shoot()
