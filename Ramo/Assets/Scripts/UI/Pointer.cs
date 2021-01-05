@@ -1,5 +1,4 @@
-﻿using System.Collections; 
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Points the direction for the level's destination.
@@ -24,6 +23,13 @@ public class Pointer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // The parent canvas uses screen space camera, assign the current camera.
+        Canvas canvas = transform.parent.gameObject.GetComponent<Canvas>();
+        if (canvas != null)
+            canvas.worldCamera = Camera.main;
+        else
+            Debug.LogWarning("Canvas component found");
+            
         GameObject targetGo = GameObject.FindWithTag("Boss");
         if (targetGo != null)
         {

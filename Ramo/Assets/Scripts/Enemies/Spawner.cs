@@ -9,7 +9,6 @@ using Pathfinding;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] GameObject[] enemies;
-    [SerializeField] Transform target;
     [SerializeField] float offsetX;
     [SerializeField] float maxDelay;
     [SerializeField] float minDelay;
@@ -19,11 +18,18 @@ public class Spawner : MonoBehaviour
     // The spawner only randomizes on y axis
     private float rangeY;
     private float spawnWait;
+    private Transform target;
   
     int randEnemy;
     
     void Start()  
     {  
+        GameObject playerGo = PlayerState.Instance.gameObject;
+        if (playerGo != null)
+        {
+            target = playerGo.transform;
+        } else 
+            Debug.LogWarning("Could not find player object");
         StartCoroutine(Spawn());
         rangeY = transform.localScale.y / 2;
     }  

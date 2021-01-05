@@ -7,29 +7,15 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class Game : MonoBehaviour
 {
-    // Singleton instance.
-    public static Game Instance { get; private set; }
-
-    // References
     // Set on inspector because it is non active at game start.
     [SerializeField] private GameObject pauseOverlay;
     [SerializeField] private GameObject levelCompleteOverlay;
 
     private bool isGameActive;
     // Keep a reference to unsubscribe.
-    private Boss bossScript;    
+    private Boss bossScript;
 
-   #region lifecycle
-
-    // Called once when created.
-    void Awake()
-    {
-        if (Instance == null) {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else { Destroy(gameObject); }
-    }
+    #region lifecycle
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +30,6 @@ public class Game : MonoBehaviour
         // KeyCode.Escape also maps to Android back button.
         if (Input.GetKeyDown(KeyCode.Escape)) { TogglePause(); }
     }
-
     // Clean up before the object is disabled.
     void OnDisable()
     {
@@ -106,7 +91,6 @@ public class Game : MonoBehaviour
     // Load the next scene in the build settings.
     private void NextLevel()
     {
-        levelCompleteOverlay.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2505801222373106028
 Transform:
   m_ObjectHideFlags: 0
@@ -110,7 +110,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 322850022928033413, guid: f4a36c966f251fd2f954da2ddc4abefe, type: 3}
-  target: {fileID: 0}
   offsetX: 50
   maxDelay: 15
   minDelay: 4

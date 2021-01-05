@@ -123,6 +123,20 @@ An overlay was used to present the user with the _pause_ options, namely **quit*
 
 The game is paused while the screen is visible. In **mobile** clicking the back button triggers the pause.
 
+## Issues found.
+
+### DontDestroyOnLoad GameObject.
+
+At the start of the development process I decided to have a singleton `Game` script, that would act as the _game manager_ and assign it to the `UI` game object. This seemed to be what made most sense, besides being some kind of a _Unity_ convention.
+
+But during the development process, I found that having the `UI` endure between scenes was giving me more problems than help, and it was adding a lot of boilerplate code. A lot of subscribing to scene load events and unsubscribing, I had to move UI related objects out of the main `UI` game object, because they should not outlive their own scene's destruction, and I also found that it was hard to configure the UI objects in a manner that suited the scene, my C# had to check what scene we were on and, based on that, configure a group of objects that kept changing. It started to seem that it would make more sense to not have persistent UI objects and being able to configure them from within the editor.
+
+At the same time, I was looking for ways to persist my player state between scenes, and sharing data between the player and the UI, data that didn't make sense to share, it all started to have code-smell.
+
+At that point, I decided to give a new idea a try, since it seemed that I didn't need most of the UI objects to persist, and instead needed the `Player` to be aware about it's state on the game, not only in the current scene, I decided to switch the `DontDestroyOnLoad` from the UI to the Player, and created a new `PlayerState` class dedicated solely to store, and share, information about the player's current state.
+
+The change paid off immediately, `PlayerState` turned out to be very simple, clear and effective, and `Game` quickly lost half it's size and two thirds of its complexity, becoming much more manageable and easier to use and modify.
+
 ## Attributions.
 
 ### Assets.

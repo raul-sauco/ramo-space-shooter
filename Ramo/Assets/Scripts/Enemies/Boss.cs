@@ -80,14 +80,9 @@ public class Boss : MonoBehaviour
         if (health < 0)
         {
             // Notify observers before self-destroying.
-            OnDestroyed();
-        }
+            if (OnDestroyed != null)
+                OnDestroyed();
             DestroySelf();
-
-        // todo only testing section
-        if (OnDestroyed != null)
-        {
-            OnDestroyed();
         }
     }
 
