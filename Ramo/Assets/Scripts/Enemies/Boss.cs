@@ -6,6 +6,9 @@ using UnityEngine.UI;
 /// </summary>
 public class Boss : MonoBehaviour
 {
+    public delegate void Destroyed();
+    public event Destroyed OnDestroyed;
+
     [SerializeField] private GameObject explossionPrefab;
     [SerializeField] private GameObject healthBar;
     [SerializeField] private float offsetX = 20f;
@@ -75,7 +78,17 @@ public class Boss : MonoBehaviour
         ColorizeHealthBar(remainingHealth);
         healthBar.transform.localScale = new Vector3(remainingHealth, 1f, 1f);
         if (health < 0)
+        {
+            // Notify observers before self-destroying.
+            OnDestroyed();
+        }
             DestroySelf();
+
+        // todo only testing section
+        if (OnDestroyed != null)
+        {
+            OnDestroyed();
+        }
     }
 
     private void ColorizeHealthBar(float remainingHealth)

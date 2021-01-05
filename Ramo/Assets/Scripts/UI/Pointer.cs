@@ -16,13 +16,20 @@ public class Pointer : MonoBehaviour
     // Enemy position on the screen based on current camera.
     private Vector3 tp;
     private bool enemyVisible;
+    // Keep a reference to unsubscribe.
+    private Boss bossScript;
+     
+   #region lifecycle
 
     // Start is called before the first frame update
     void Start()
     {
         GameObject targetGo = GameObject.FindWithTag("Boss");
         if (targetGo != null)
+        {
             target = targetGo.transform;
+            SubscribeToBossDestroyedEvent(targetGo);
+        }
         else
             Debug.LogWarning("No enemy boss found, pointer will not work");
         GameObject originGo = GameObject.FindWithTag("Player");
@@ -39,6 +46,22 @@ public class Pointer : MonoBehaviour
     }
 
     void Update()
+    {
+        // Check that the boss has not been destroyed.
+        if (tp != null)
+            UpdatePointer();
+    }
+
+    // Clean up before the object is disabled.
+    void OnDisable()
+    {
+        if (bossScript != null)
+            bossScript.OnDestroyed -= BossDestroyedCallback;
+    }
+
+    #endregion  // Lifecycle
+
+    private void UpdatePointer()
     {
         // Check if target is visible on screen
         tp = Camera.main.WorldToScreenPoint(target.position);
@@ -62,4 +85,25 @@ public class Pointer : MonoBehaviour
             pointerRectTransform.position = worldPosition;
         }
     }
+
+    #region events
+
+    // We want to know when the scene's boss is destroyed.
+    // Each scene can only have one GameObject tagged "Boss"
+    void SubscribeToBossDestroyedEvent(GameObject bossGo)
+    {
+        bossScript = bossGo.GetComponent<Boss>();
+        if (bossScript != null)
+            bossScript.OnDestroyed += BossDestroyedCallback;
+        else
+            Debug.LogWarning("Boss GameObject does not have Boss script component");
+    }
+
+    // The default behaviour is to disable the arrow when the boss is destroyed.
+    private void BossDestroyedCallback()
+    {
+        gameObject.SetActive(false);
+    }
+
+    #endregion // events
 }
