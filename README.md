@@ -144,6 +144,7 @@ The change paid off immediately, `PlayerState` turned out to be very simple, cle
 The player's **space fighter** was crafted by [Devekros][3] and it is available at [this link][4] in the Unity Asset Store.  
 The built in **UI elements** come from the [Techno Blue GUI Skin asset][9] on the asset store. The custom text was created following this [video tutorial][7].
 Some of the asteroids come from the free [Asteroids Pack][11] by [Mark Dion][12] on the Unity Asset Store.
+The game uses music from the [Absolutely Free Music][13] asset by [Vertex Studio][14].
 
 ### References.
 
@@ -167,3 +168,5 @@ Touch controls [tutorial][10].
 [10]: https://www.youtube.com/watch?v=bp2PiFC9sSs
 [11]: https://assetstore.unity.com/packages/3d/environments/asteroids-pack-84988
 [12]: https://assetstore.unity.com/publishers/27658
+[13]: https://assetstore.unity.com/packages/audio/music/absolutely-free-music-4883
+[14]: https://assetstore.unity.com/publishers/2053
