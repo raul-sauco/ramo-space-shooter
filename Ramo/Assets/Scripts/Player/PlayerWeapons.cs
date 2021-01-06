@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Manages the player character's weapons and attacks.
+/// </summary>
 public class PlayerWeapons : MonoBehaviour
 {
     [SerializeField] private GameObject BulletPrefab;
     [SerializeField] private Transform ShootingPoint;
+    [SerializeField] private AudioSource shootLaser12Sfx;
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown("space"))
@@ -16,11 +19,9 @@ public class PlayerWeapons : MonoBehaviour
         // Enable mobile
         if (Input.touchCount > 0)
         {
-            // Do something
             Touch touch = Input.GetTouch(0);
             if (touch.position.x > Screen.width / 2)
             {
-                Debug.Log("Shooting by touch");
                 Shoot();
             }
         }
@@ -28,6 +29,7 @@ public class PlayerWeapons : MonoBehaviour
 
     private void Shoot()
     {
+        shootLaser12Sfx.Play();
         Instantiate(BulletPrefab, ShootingPoint.position, ShootingPoint.rotation);
     }
 }

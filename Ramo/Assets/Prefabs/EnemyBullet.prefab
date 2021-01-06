@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6030506477380342202}
   m_Layer: 12
   m_Name: EnemyBullet
-  m_TagString: Enemy
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0179de030fc3e1428de928423252280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: {x: 0, y: 0, z: 0}
   lifeTime: 3
   explossionPrefab: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
     type: 3}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 847796439348860022}
   m_Layer: 12
   m_Name: Capsule
-  m_TagString: PlayerAttack
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

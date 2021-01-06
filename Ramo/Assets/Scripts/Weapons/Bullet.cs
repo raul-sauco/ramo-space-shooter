@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private Vector3 speed;
     [SerializeField] private float lifeTime = 3f;
     [SerializeField] private GameObject explossionPrefab;
+    [SerializeField] private AudioSource hitSfx;
 
     // Let instantiators alter default speed and direction.
     public void SetSpeed(Vector3 updatedSpeed)
@@ -27,12 +28,14 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         string tag = collider.gameObject.tag;
-        if (tag == "Enemy" || tag == "Boss")
+        Debug.Log("Bullet collided with " + tag);
+        if (tag == "EnemyCapsule" || tag == "Boss")
         {
+            hitSfx.Play();
             GameObject exp = Instantiate(explossionPrefab, 
                 transform.position, transform.rotation);
             Destroy(exp, 1);
-            Destroy(gameObject);
+            Destroy(gameObject, 0.2f);
         }
     }
 }

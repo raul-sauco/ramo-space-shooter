@@ -987,11 +987,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2593138143014059048, guid: 6f0377977229fdf56a4f65d2ca8c9987,
         type: 3}
-      propertyPath: speed
-      value: 1200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2593138143014059048, guid: 6f0377977229fdf56a4f65d2ca8c9987,
-        type: 3}
       propertyPath: joystick
       value: 
       objectReference: {fileID: 8170153792821199640}
@@ -1057,24 +1052,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f0377977229fdf56a4f65d2ca8c9987, type: 3}
---- !u!1 &2593138141808628054 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2593138143014059049, guid: 6f0377977229fdf56a4f65d2ca8c9987,
-    type: 3}
-  m_PrefabInstance: {fileID: 2593138141808628053}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2593138141808628055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2593138141808628054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 197db300818bce2c79c56421a66a2300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3083096784806640724
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,6 +10,9 @@ TagManager:
   - Boss
   - Enemy
   - PauseOverlay
+  - EnemyBullet
+  - EnemyCapsule
+  - FloatingJoystick
   layers:
   - Default
   - TransparentFX

@@ -18,6 +18,22 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();   
     }
 
+    void Update()
+    {
+        // Get a reference to the Joystic on new scenes.
+        if (joystick == null)
+        {
+            GameObject go = GameObject.FindWithTag("FloatingJoystick");
+            if (go != null)
+            {
+                joystick = go.GetComponent<Joystick>();
+            } else 
+            {
+                Debug.LogWarning("Joystick is null and couldn't find Joystick game object in scene");
+            }
+        }
+    }
+
     public void FixedUpdate()
     {
         rb.AddForce(

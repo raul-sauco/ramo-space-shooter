@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 2528892826927278875}
   m_Layer: 5
   m_Name: Floating Joystick
-  m_TagString: Untagged
+  m_TagString: FloatingJoystick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

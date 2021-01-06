@@ -155,6 +155,8 @@ The game uses music from the [Absolutely Free Music][13] asset by [Vertex Studio
 
 Gunshot and laser sounds from the [Futuristic Gun Sound FX][16] asset by [MGWSoundDesign][17].
 
+Explosion sounds from the [Grenade Sound FX][19] asset by [MGWSoundDesign][17].
+
 ### References.
 
 Scrolling star background [video tutorial][1].  
