@@ -141,10 +141,19 @@ The change paid off immediately, `PlayerState` turned out to be very simple, cle
 
 ### Assets.
 
-The player's **space fighter** was crafted by [Devekros][3] and it is available at [this link][4] in the Unity Asset Store.  
+The player's **space fighter** was crafted by [Devekros][3] and it is available at [this link][4] in the Unity Asset Store.
+
 The built in **UI elements** come from the [Techno Blue GUI Skin asset][9] on the asset store. The custom text was created following this [video tutorial][7].
+
 Some of the asteroids come from the free [Asteroids Pack][11] by [Mark Dion][12] on the Unity Asset Store.
-The game uses music from the [Absolutely Free Music][13] asset by [Vertex Studio][14].
+
+Most of the asteroids were created by hand using Unity's [Polybrush][15].
+
+The game uses music from the [Absolutely Free Music][13] asset by [Vertex Studio][14] on the following levels:
+
+- Level 1: track no.6.
+
+Gunshot and laser sounds from the [Futuristic Gun Sound FX][16] asset by [MGWSoundDesign][17].
 
 ### References.
 
@@ -170,3 +179,6 @@ Touch controls [tutorial][10].
 [12]: https://assetstore.unity.com/publishers/27658
 [13]: https://assetstore.unity.com/packages/audio/music/absolutely-free-music-4883
 [14]: https://assetstore.unity.com/publishers/2053
+[15]: https://unity3d.com/unity/features/worldbuilding/polybrush
+[16]: https://assetstore.unity.com/packages/audio/sound-fx/weapons/futuristic-gun-soundfx-100851
+[17]: https://assetstore.unity.com/publishers/27115
