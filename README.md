@@ -164,6 +164,7 @@ UI using _screen camera_ instead of _screen overlay_ [tutorial][6]. Removes clut
 Nice gradient for menu text on this [tutorial][7].  
 Using `Time.timeScale` to [pause the game][8].  
 Touch controls [tutorial][10].
+Inspiration for the circular light movement from this [tutorial][18].
 
 [1]: https://www.youtube.com/watch?v=nGw_UBJQPDY
 [2]: https://www.youtube.com/watch?v=2jTY11Am0Ig
@@ -182,3 +183,4 @@ Touch controls [tutorial][10].
 [15]: https://unity3d.com/unity/features/worldbuilding/polybrush
 [16]: https://assetstore.unity.com/packages/audio/sound-fx/weapons/futuristic-gun-soundfx-100851
 [17]: https://assetstore.unity.com/publishers/27115
+[18]: https://www.youtube.com/watch?v=BGe5HDsyhkY
