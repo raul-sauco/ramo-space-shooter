@@ -10,8 +10,11 @@ public class Game : MonoBehaviour
     // Set on inspector because it is non active at game start.
     [SerializeField] private GameObject pauseOverlay;
     [SerializeField] private GameObject levelCompleteOverlay;
+    [SerializeField] private GameObject loadingOverlay;
+    [SerializeField] private GameObject loadNextOverlay;
 
     private bool isGameActive;
+    private bool isLevelCompleted;
     // Keep a reference to unsubscribe.
     private Boss bossScript;
 
@@ -20,6 +23,7 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isLevelCompleted = false;
         isGameActive = true;
         SubscribeToBossDestroyedEvent();
     }
@@ -28,7 +32,17 @@ public class Game : MonoBehaviour
     void Update()
     {
         // KeyCode.Escape also maps to Android back button.
-        if (Input.GetKeyDown(KeyCode.Escape)) { TogglePause(); }
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            TogglePause();
+        }
+        if (isLevelCompleted)
+        {
+            if (Input.GetKeyDown(KeyCode.Return) || Input.touchCount > 0)
+            {
+                LoadNextLevel();
+            }
+        }
     }
 
     // Clean up before the object is disabled.
@@ -86,12 +100,16 @@ public class Game : MonoBehaviour
     private void BossDestroyedCallback()
     {
         levelCompleteOverlay.SetActive(true);
-        Invoke(nameof(NextLevel), 5f);
+        loadNextOverlay.SetActive(true);
+        isLevelCompleted = true;
     }
 
     // Load the next scene in the build settings.
-    private void NextLevel()
+    private void LoadNextLevel()
     {
+        levelCompleteOverlay.SetActive(false);
+        loadNextOverlay.SetActive(false);
+        loadingOverlay.SetActive(true);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
