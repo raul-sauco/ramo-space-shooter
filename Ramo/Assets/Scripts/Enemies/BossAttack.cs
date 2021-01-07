@@ -12,10 +12,45 @@ public class BossAttack : MonoBehaviour
     [SerializeField] private float maxWait;
     [SerializeField] private float fromActiveWait;
 
+    // Flag wether the gameObject is active.
+    private bool isActive;
+    // Keep a reference to the Boss script.
+    private Boss boss;
+
     void Start()
     {
+        isActive = false;
+        boss = GetComponent<Boss>();
+        if (boss != null)
+        {
+            boss.OnActivated += OnActivatedCallback;
+            boss.OnDestroyed += OnDestroyedCallback;
+        } else 
+        {
+            Debug.LogWarning("Could not find a reference to Boss script");
+        }
+    }
+    
+    // Clean up before the object is disabled.
+    void OnDisable()
+    {
+        if (boss != null)
+        {
+            boss.OnActivated -= OnActivatedCallback;
+            boss.OnDestroyed -= OnDestroyedCallback;
+        }
+    }
+
+    void OnActivatedCallback()
+    {
+        isActive = true;
         StartCoroutine(nameof(Attack));
-        Debug.Log("Boss attacking");
+        Debug.Log(gameObject.name + " attacking");
+    }
+
+    void OnDestroyedCallback()
+    {
+        isActive = false;
     }
 
     private void Shoot()
@@ -31,6 +66,7 @@ public class BossAttack : MonoBehaviour
         AssignDirection(new Vector3(-26.26f, -26.26f, 0f), bulletInstance);
     }
 
+    // Get a handle to the instantiated object and set its direction.
     private void AssignDirection(Vector3 speed, GameObject bulletGO)
     {
         Bullet controller =  bulletGO.GetComponent<Bullet>();
@@ -44,12 +80,10 @@ public class BossAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(fromActiveWait);
 
-        while(true) // TODO game is active?
+        while(isActive)
         {
             Shoot();
             yield return new WaitForSeconds(Random.Range(minWait, maxWait));
         }
     }
-
-
 }

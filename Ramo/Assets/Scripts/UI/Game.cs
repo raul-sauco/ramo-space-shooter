@@ -30,6 +30,7 @@ public class Game : MonoBehaviour
         // KeyCode.Escape also maps to Android back button.
         if (Input.GetKeyDown(KeyCode.Escape)) { TogglePause(); }
     }
+    
     // Clean up before the object is disabled.
     void OnDisable()
     {

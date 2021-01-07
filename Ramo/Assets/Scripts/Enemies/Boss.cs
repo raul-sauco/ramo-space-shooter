@@ -8,10 +8,14 @@ public class Boss : MonoBehaviour
 {
     public delegate void Destroyed();
     public event Destroyed OnDestroyed;
+    public delegate void Activated();
+    public event Destroyed OnActivated;
 
     [SerializeField] private GameObject explossionPrefab;
     [SerializeField] private GameObject healthBar;
     [SerializeField] private float offsetX = 20f;
+    // The Y offset affects shooting accuracy of the Boss.
+    [SerializeField] private float offsetY = 1.50f;
     [SerializeField] private float smoothSpeed = 0.1f;
     [SerializeField] private float activationDistance = 40f;
     [SerializeField] private float health = 100f;
@@ -31,7 +35,7 @@ public class Boss : MonoBehaviour
     {
         isActive = false;
         startHealth = health;
-        GameObject go = GameObject.Find("Player");
+        GameObject go = PlayerState.Instance.gameObject;
         if (go != null)
             playerTransform = go.transform;
         else
@@ -46,7 +50,12 @@ public class Boss : MonoBehaviour
             float dist = Vector3.Distance(transform.position, playerTransform.position);
             if (dist < activationDistance)
             {
+                // Activate the gameObject and notify subscribers.
                 isActive = true;
+                if (OnActivated != null)
+                {
+                    OnActivated();
+                }
                 Debug.Log("Activating " + gameObject.name);
             }
         }
@@ -61,7 +70,7 @@ public class Boss : MonoBehaviour
     private void TrackPlayer()
     {
         Vector3 desiredPosition = playerTransform.position + 
-            new Vector3(offsetX, 0f, 0f);
+            new Vector3(offsetX, offsetY, 0f);
         transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
     }
 
@@ -81,7 +90,9 @@ public class Boss : MonoBehaviour
         {
             // Notify observers before self-destroying.
             if (OnDestroyed != null)
+            {
                 OnDestroyed();
+            }
             DestroySelf();
         }
     }
