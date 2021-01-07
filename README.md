@@ -89,13 +89,25 @@ At the moment, each level only has one mission, _find the boss and destroy it_, 
 
 The types of enemies that we will encounter on the level can be classified in two groups, regular enemies and bosses.
 
-#### Regular enemies.
+#### Regular enemies (Capsules).
 
 This enemies are spawned at random intervals by a _spawner_ game object that stays slightly ahead of the player as she moves through the level.
 
-The spawner is slightly bigger than the screen height and spawns elements at random intervals, within a range, and at random points of the _quad_ element that it is made of. The spawning rate range can be adjusted from the editor to make levels progressively harder.
+The spawner is slightly bigger than the screen height and spawns elements at random intervals, within a range, and at random points of the _quad_ element that is made of. The spawning rate range can be adjusted from the editor to make levels progressively harder.
 
 The _basic_ regular enemies are capsule shaped ships that do not fire any shots and just try to collide with the player character. This characters use the [Astar project][5] for pathfinding.
+
+![Capsule enemies](res/capsule.png)
+
+As a material the capsules use material no.12 on the [Yughues Free Metal Materials][19] pack from the Unity asset store. To improve the look of the enemies I added a subtle point light, of the same color that the light sections of the material. The scenery is supposed to be an important part of the game, and the light from the _capsules_ reflecting on the background objects adds a very interesting flavor.
+
+To make the objects more dynamic, I added a [`Spinner script`][21] that initially I had planned to use only on background objects, like asteroids, to make them spin on place.
+
+The script is very simple but effective. It takes a `speed` `Vector3` initialization from the editor, or a default of `(1,1,1)` if not set from the editor, and it uses it, inside the `Update` method to rotate the transform thus:
+
+```c#
+transform.Rotate(speed * Time.deltaTime);
+```
 
 #### Bosses.
 
@@ -107,7 +119,7 @@ TODO fill this up.
 
 At the start of the game, is good to offer a simple interface that entices users to start the game as quick as possible. I opted for a simple interface with two options, _play_ and _quit_ and some special effects, like a point light that moves around the scene to give the impression of time moving.
 
-![Main menu](./res/main-menu.png)
+![Main menu](res/main-menu.png)
 
 #### Pause overlay.
 
@@ -141,13 +153,21 @@ The change paid off immediately, `PlayerState` turned out to be very simple, cle
 
 ### Assets.
 
+#### Full prefabs.
+
 The player's **space fighter** was crafted by [Devekros][3] and it is available at [this link][4] in the Unity Asset Store.
 
 The built in **UI elements** come from the [Techno Blue GUI Skin asset][9] on the asset store. The custom text was created following this [video tutorial][7].
 
 Some of the asteroids come from the free [Asteroids Pack][11] by [Mark Dion][12] on the Unity Asset Store.
 
+#### Textures and materials.
+
 Most of the asteroids were created by hand using Unity's [Polybrush][15].
+
+Metal texture from the [Yughues Free Metal Materials][19] asset by [Nobiax / Yughues][20].
+
+#### Music and sound effects.
 
 The game uses music from the [Absolutely Free Music][13] asset by [Vertex Studio][14] on the following levels:
 
@@ -186,3 +206,6 @@ Inspiration for the circular light movement from this [tutorial][18].
 [16]: https://assetstore.unity.com/packages/audio/sound-fx/weapons/futuristic-gun-soundfx-100851
 [17]: https://assetstore.unity.com/publishers/27115
 [18]: https://www.youtube.com/watch?v=BGe5HDsyhkY
+[19]: https://assetstore.unity.com/packages/2d/textures-materials/metals/yughues-free-metal-materials-12949
+[20]: https://assetstore.unity.com/publishers/4986
+[21]: https://gitlab.com/raul.sauco/prog2D-practica/-/blob/master/Ramo/Assets/Scripts/Background/Spinner.cs

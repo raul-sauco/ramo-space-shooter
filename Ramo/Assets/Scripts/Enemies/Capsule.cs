@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Manages a capsule type enemy.
+/// </summary>
 public class Capsule : MonoBehaviour
 {
     [SerializeField] private GameObject explossionPrefab;
@@ -24,11 +27,6 @@ public class Capsule : MonoBehaviour
                 transform.localScale = new Vector3(0,0,0);
                 // Avoid collisions with the player
                 transform.position += new Vector3(0f, 0f, 5f);
-                GameObject halo = transform.Find("Halo").gameObject;
-                if (halo != null)
-                {
-                    Destroy(halo);
-                }
                 explossionSfx.Play();    
                 explossionFx = Instantiate(explossionPrefab, transform.position, transform.rotation);
                 Destroy(explossionFx, 2f);
