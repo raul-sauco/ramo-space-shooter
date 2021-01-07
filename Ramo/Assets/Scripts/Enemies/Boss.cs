@@ -20,9 +20,12 @@ public class Boss : MonoBehaviour
     [SerializeField] private float activationDistance = 40f;
     [SerializeField] private float health = 100f;
     [SerializeField] private float hitDamage = 5f;
+    [SerializeField] private AudioSource destroyedSfx;
+    [SerializeField] private GameObject ship;
+    [SerializeField] private GameObject healthBarCanvas;
 
     private Transform playerTransform;
-    private bool isActive;
+    private bool isActive, isDestroyed;
     private GameObject explossionFx;
     private float startHealth;
 
@@ -34,6 +37,7 @@ public class Boss : MonoBehaviour
     void Start()
     {
         isActive = false;
+        isDestroyed = false;
         startHealth = health;
         GameObject go = PlayerState.Instance.gameObject;
         if (go != null)
@@ -45,7 +49,7 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isActive)
+        if (!isActive && !isDestroyed)
         {
             float dist = Vector3.Distance(transform.position, playerTransform.position);
             if (dist < activationDistance)
@@ -63,7 +67,7 @@ public class Boss : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isActive)
+        if (isActive && !isDestroyed)
             TrackPlayer();
     }
 
@@ -76,8 +80,10 @@ public class Boss : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (isActive && collider.gameObject.tag == "PlayerAttack")
+        if (isActive && !isDestroyed && collider.gameObject.tag == "PlayerAttack")
+        {
             TakeDamage();
+        }
     }
 
     private void TakeDamage()
@@ -113,17 +119,12 @@ public class Boss : MonoBehaviour
 
     private void DestroySelf()
     {
-        Vector3 position = new Vector3(transform.position.x, 
-            transform.position.y, transform.position.z - 4);
-        transform.localScale = new Vector3(0,0,0);
-        explossionFx = Instantiate(explossionPrefab, position, transform.rotation);
-        Invoke(nameof(CleanUpObjects), 2);
-    }
-
-    private void CleanUpObjects()
-    {
-        Destroy(explossionFx);
-        Destroy(gameObject);
-        // TODO notify game manager
+        isDestroyed = true;
+        destroyedSfx.Play();
+        ship.SetActive(false);
+        healthBarCanvas.SetActive(false);
+        explossionFx = Instantiate(explossionPrefab, transform.position, transform.rotation);
+        Destroy(explossionFx, 2f);
+        Destroy(gameObject, 2f);
     }
 }

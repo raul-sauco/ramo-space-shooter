@@ -11,6 +11,7 @@ public class BossAttack : MonoBehaviour
     [SerializeField] private float minWait;
     [SerializeField] private float maxWait;
     [SerializeField] private float fromActiveWait;
+    [SerializeField] private AudioSource shootSfx;
 
     // Flag wether the gameObject is active.
     private bool isActive;
@@ -55,6 +56,7 @@ public class BossAttack : MonoBehaviour
 
     private void Shoot()
     {
+        shootSfx.Play();
         // Diagonally up.
         GameObject bulletInstance = Instantiate(bulletPrefab, cannon.position, cannon.rotation);
         AssignDirection(new Vector3(-26.26f, 26.26f, 0f), bulletInstance);

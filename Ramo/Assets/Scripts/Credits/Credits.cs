@@ -52,6 +52,8 @@ public class Credits : MonoBehaviour
         {
             Destroy(PlayerState.Instance.gameObject);
         }
+        // Reset the timeScale that the menu stopped.
+        Time.timeScale = 1;
         SceneManager.LoadScene("Menu");
     }
 }

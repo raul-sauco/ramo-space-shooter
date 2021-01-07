@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float lifeTime = 3f;
     [SerializeField] private GameObject explossionPrefab;
     [SerializeField] private AudioSource hitSfx;
+    [SerializeField] private GameObject capsule;
 
     // Let instantiators alter default speed and direction.
     public void SetSpeed(Vector3 updatedSpeed)
@@ -29,13 +30,16 @@ public class Bullet : MonoBehaviour
     {
         string tag = collider.gameObject.tag;
         Debug.Log("Bullet collided with " + tag);
-        if (tag == "EnemyCapsule" || tag == "Boss")
+        if (tag == "EnemyCapsule" || tag == "Boss" || tag == "Player")
         {
             hitSfx.Play();
+            // Disable the capsule component to hide from view.
+            capsule.SetActive(false);
             GameObject exp = Instantiate(explossionPrefab, 
                 transform.position, transform.rotation);
             Destroy(exp, 1);
-            Destroy(gameObject, 0.2f);
+            // Allow the sound effect to play completely.
+            Destroy(gameObject, 0.5f);
         }
     }
 }

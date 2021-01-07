@@ -25,7 +25,15 @@ public class PlayerState : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("PlayerState::OnSceneLoaded: " + scene.name);
-
+        if (scene.name == "Credits")
+        {
+            Debug.Log("Loaded credit scene, destroying player");
+            Destroy(gameObject);
+        } else 
+        {
+            // Reset the player to the start position, always 0,0,0.
+            transform.position = new Vector3(0f,0f,0f);
+        }
     }
 
     // called on object disable.

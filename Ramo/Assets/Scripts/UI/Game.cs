@@ -30,7 +30,7 @@ public class Game : MonoBehaviour
         // KeyCode.Escape also maps to Android back button.
         if (Input.GetKeyDown(KeyCode.Escape)) { TogglePause(); }
     }
-    
+
     // Clean up before the object is disabled.
     void OnDisable()
     {
@@ -86,7 +86,7 @@ public class Game : MonoBehaviour
     private void BossDestroyedCallback()
     {
         levelCompleteOverlay.SetActive(true);
-        Invoke(nameof(NextLevel), 2f);
+        Invoke(nameof(NextLevel), 5f);
     }
 
     // Load the next scene in the build settings.
