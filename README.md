@@ -77,6 +77,18 @@ The `parallax` variable is editable from within the inspector, giving it differe
 
 The star background was inspired by this [video tutorial][1].
 
+Having a slightly different backdrop for each level can help players quickly identify which level they are currently at, besides helping giving each of them a different atmosphere.
+
+That would be difficult to achieve using just the star background, and we want the obstacles to be just a coincidental, not a defining part of the level, at least until later levels, where they can become NP _characters_ and _attack_ the player.
+
+Being already in space, we can use _nebula like_ images for this end, each level can have a different nebula as a backdrop, achieving two ends, first, it makes the level look better, then it helps the player quickly know _where_ they are in the game.
+
+Ideally, we want the nebula backdrop to scroll even slower than the farthest starfield background, on the 2.5D game that we are developing, we could use another parallax script to this end, but, since we don't care if the component disappears form the screen view, it is easy to achieve the same result placing the component far back and scale it up. This setup also makes it easy to configure the look and feel of the backdrop on different levels, and use Unity's built-in functions to modify it, for example, adding a bit of light, we can achieve effects like the following.
+
+![Nebula comparison](res/nebulas.png)
+
+> Nebula backdrops make it easy to create compelling level backdrops.
+
 ### World navigation.
 
 The game aims to be a side-scroller space-shooter with a twist, part of that twist is that the game takes place in an open world, I think that could let us add some interesting updates later on, for example, different missions inside one level.
@@ -179,13 +191,20 @@ Explosion sounds from the [Grenade Sound FX][19] asset by [MGWSoundDesign][17].
 
 ### References.
 
-Scrolling star background [video tutorial][1].  
-Cinemachine [video tutorial][2].  
-Astar project [website][5].  
-UI using _screen camera_ instead of _screen overlay_ [tutorial][6]. Removes clutter while developing.  
-Nice gradient for menu text on this [tutorial][7].  
-Using `Time.timeScale` to [pause the game][8].  
+Scrolling star background [video tutorial][1].
+
+Cinemachine [video tutorial][2].
+
+Astar project [website][5].
+
+UI using _screen camera_ instead of _screen overlay_ [tutorial][6]. Removes clutter while developing.
+
+Nice gradient for menu text on this [tutorial][7].
+
+Using `Time.timeScale` to [pause the game][8].
+
 Touch controls [tutorial][10].
+
 Inspiration for the circular light movement from this [tutorial][18].
 
 [1]: https://www.youtube.com/watch?v=nGw_UBJQPDY

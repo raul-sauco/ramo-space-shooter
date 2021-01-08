@@ -262,7 +262,7 @@ MonoBehaviour:
   offsetX: 25
   offsetY: 2.6
   smoothSpeed: 0.02
-  activationDistance: 40
+  activationDistance: 60
   health: 100
   hitDamage: 2
   destroyedSfx: {fileID: 2111104965}
@@ -283,8 +283,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 847796438726668821, guid: 39c5b4821cca378499e2c632ec21fe07,
     type: 3}
   cannon: {fileID: 2505994554689301630}
-  minWait: 0.1
-  maxWait: 0.5
+  minWait: 1
+  maxWait: 3
   fromActiveWait: 1
   shootSfx: {fileID: 1059169906}
 --- !u!136 &2505994554825030703
@@ -591,9 +591,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2505994554825030688}
     m_Modifications:
+    - target: {fileID: 104378, guid: c9816fa979b06ba4e9c222b529370cc2, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 110440, guid: c9816fa979b06ba4e9c222b529370cc2, type: 3}
       propertyPath: m_Name
       value: Ship_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 110440, guid: c9816fa979b06ba4e9c222b529370cc2, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 439242, guid: c9816fa979b06ba4e9c222b529370cc2, type: 3}
       propertyPath: m_LocalPosition.x
