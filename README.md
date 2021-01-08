@@ -113,7 +113,7 @@ The _basic_ regular enemies are capsule shaped ships that do not fire any shots 
 
 As a material the capsules use material no.12 on the [Yughues Free Metal Materials][19] pack from the Unity asset store. To improve the look of the enemies I added a subtle point light, of the same color that the light sections of the material. The scenery is supposed to be an important part of the game, and the light from the _capsules_ reflecting on the background objects adds a very interesting flavor.
 
-To make the objects more dynamic, I added a [`Spinner script`][21] that initially I had planned to use only on background objects, like asteroids, to make them spin on place.
+To make the objects more dynamic, I added a [`Spinner` script][21] that initially I had planned to use only on background objects, like asteroids, to make them spin on place.
 
 The script is very simple but effective. It takes a `speed` `Vector3` initialization from the editor, or a default of `(1,1,1)` if not set from the editor, and it uses it, inside the `Update` method to rotate the transform thus:
 
