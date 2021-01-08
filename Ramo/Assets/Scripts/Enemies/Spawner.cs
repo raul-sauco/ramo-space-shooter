@@ -47,17 +47,33 @@ public class Spawner : MonoBehaviour
   
         while (!stop)  
         {  
-            randEnemy = Random.Range(0,enemies.Length);
+            randEnemy = CalculateWeightedRandomEnemyType();
             Vector3 spawnPosition = new Vector3(0f, Random.Range(-rangeY, rangeY), 0f);
-            GameObject enemy = Instantiate(enemies[randEnemy], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
-            AIDestinationSetter setter = enemy.GetComponent<AIDestinationSetter>();
-            if (setter != null)
+            GameObject enemy = Instantiate(
+                enemies[randEnemy], 
+                spawnPosition + transform.TransformPoint(0, 0, 0), 
+                gameObject.transform.rotation
+            );
+            // Capsule type enemies use A* pathfinding, assign a setter.target.
+            if (randEnemy == 0)
             {
-                setter.target = target;
+                AIDestinationSetter setter = enemy.GetComponent<AIDestinationSetter>();
+                if (setter != null)
+                {
+                    setter.target = target;
+                }
+            } else 
+            {
+                // TODO Get the enemy script and assign the target.
             }
             yield return new WaitForSeconds(spawnWait);
         }  
-    }  
-       
-          
+    }
+
+    private int CalculateWeightedRandomEnemyType()
+    {
+        // 20% chance getting a sphere type enemy, 80% a capsule.
+        var rand = Random.Range(0,100);
+        return rand > 20 ? 0 : 1;
+    }
 } 

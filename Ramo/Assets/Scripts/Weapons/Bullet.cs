@@ -30,7 +30,8 @@ public class Bullet : MonoBehaviour
     {
         string tag = collider.gameObject.tag;
         Debug.Log("Bullet collided with " + tag);
-        if (tag == "EnemyCapsule" || tag == "Boss" || tag == "Player")
+        if (tag == "EnemyCapsule" || tag == "Boss" || tag == "EnemyDefense" ||
+            tag == "Player" || tag == "EnemySphere")
         {
             hitSfx.Play();
             // Disable the capsule component to hide from view.

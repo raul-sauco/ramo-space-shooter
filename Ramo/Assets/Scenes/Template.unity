@@ -187,7 +187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &187426387 stripped
 Transform:
@@ -332,7 +332,7 @@ PrefabInstance:
     - target: {fileID: 5943160749865994449, guid: 3b84ab48be3bf5558afaa7ade5b76324,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5943160749865994449, guid: 3b84ab48be3bf5558afaa7ade5b76324,
         type: 3}
@@ -652,7 +652,7 @@ Transform:
   - {fileID: 1306628258}
   - {fileID: 1638521222}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &1053273332
 LightingSettings:
@@ -1201,8 +1201,29 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2505801222373106024, guid: b5cc65fb8975324e793030d967918979,
         type: 3}
+      propertyPath: enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2505801222373106024, guid: b5cc65fb8975324e793030d967918979,
+        type: 3}
       propertyPath: target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2505801222373106024, guid: b5cc65fb8975324e793030d967918979,
+        type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 5039228848097842883, guid: 6fcfb8e022e8819f396558e83ca6450f,
+        type: 3}
+    - target: {fileID: 2505801222373106024, guid: b5cc65fb8975324e793030d967918979,
+        type: 3}
+      propertyPath: maxDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2505801222373106024, guid: b5cc65fb8975324e793030d967918979,
+        type: 3}
+      propertyPath: minDelay
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2505801222373106028, guid: b5cc65fb8975324e793030d967918979,
         type: 3}
@@ -1281,7 +1302,7 @@ PrefabInstance:
     - target: {fileID: 2505994554825030688, guid: 48433e502322e653c8b98fe38ffd410d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 41
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2505994554825030688, guid: 48433e502322e653c8b98fe38ffd410d,
         type: 3}
@@ -1494,7 +1515,7 @@ PrefabInstance:
     - target: {fileID: 8235662685460274224, guid: 9ed4cbc6b44f113daabad329e5fdb0da,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8235662685460274224, guid: 9ed4cbc6b44f113daabad329e5fdb0da,
         type: 3}

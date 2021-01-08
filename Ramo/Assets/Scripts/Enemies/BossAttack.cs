@@ -75,7 +75,7 @@ public class BossAttack : MonoBehaviour
         if (controller != null)
             controller.SetSpeed(speed);
         else
-            Debug.LogWarning("Not bullet controller found");
+            Debug.LogWarning("No bullet controller found");
     }
 
     private IEnumerator Attack()

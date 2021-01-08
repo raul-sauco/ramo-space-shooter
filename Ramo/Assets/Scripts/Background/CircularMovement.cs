@@ -22,6 +22,6 @@ public class CircularMovement : MonoBehaviour
         control += Time.deltaTime * speed;
         float x = Mathf.Cos(control) * rangeX;
         float y = Mathf.Sin(control) * rangeY;
-        transform.position = new Vector3(x, y, transform.position.z);
+        transform.localPosition = new Vector3(x, y, transform.localPosition.z);
     }
 }
