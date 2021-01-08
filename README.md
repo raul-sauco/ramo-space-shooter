@@ -147,6 +147,22 @@ An overlay was used to present the user with the _pause_ options, namely **quit*
 
 The game is paused while the screen is visible. In **mobile** clicking the back button triggers the pause.
 
+### Level design.
+
+The game is structured on progressively harder levels that should let the users get used to all game features as they play. Levels are short by design, and the player can choose levels from the start menu.
+
+The levels are short by design. The aim in to recreate the dynamic of popular games like _League of Legends_ where a _play_ only lasts a few minutes.
+
+#### Level 1: Easy-peasy.
+
+A basic introduction to game play. Only enemy capsules and the final boss, both of them with very easy settings. The _spawner_ generates one enemy capsule between 4 and 15 seconds each, and the boss only fires three shots simultaneously every 1 to 3 seconds.
+
+There are some _obstacle_ objects, but none of them is in the player's way.
+
+#### Level 2: Warming-up engines.
+
+Level 2 does not introduce any new elements but speeds up the game, starting to hint at the fast-pace dynamic. Spawning interval is set between 2 and 10 seconds and boss fires every 0.5 to 1 second, still only 3 bullets.
+
 ## Issues found.
 
 ### DontDestroyOnLoad GameObject.
@@ -181,9 +197,14 @@ Metal texture from the [Yughues Free Metal Materials][19] asset by [Nobiax / Yug
 
 #### Music and sound effects.
 
+The menu scene uses the [Deep In Space][22] asset by [Breitbarth][23] for ambiance music.
+
 The game uses music from the [Absolutely Free Music][13] asset by [Vertex Studio][14] on the following levels:
 
+- Title page: track no.11.
 - Level 1: track no.6.
+- Level 2: track no.31.
+- Credits page: track no.1.
 
 Gunshot and laser sounds from the [Futuristic Gun Sound FX][16] asset by [MGWSoundDesign][17].
 
@@ -228,3 +249,5 @@ Inspiration for the circular light movement from this [tutorial][18].
 [19]: https://assetstore.unity.com/packages/2d/textures-materials/metals/yughues-free-metal-materials-12949
 [20]: https://assetstore.unity.com/publishers/4986
 [21]: https://gitlab.com/raul.sauco/prog2D-practica/-/blob/master/Ramo/Assets/Scripts/Background/Spinner.cs
+[22]: https://assetstore.unity.com/packages/audio/music/electronic/deep-in-space-88071
+[23]: https://assetstore.unity.com/publishers/27455
