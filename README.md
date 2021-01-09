@@ -12,7 +12,11 @@ Choosing a theme for the game is probably the single decision that will bear the
 
 With these guidelines in place, I started looking at options, but, before we look at what these options were and the decision process, here is the final result.
 
-// TODO gameplay screencap.
+![Game play screen capture](res/gameplay.jpg)
+
+_An example screen on the RAMO space shooter._
+
+## Options considered.
 
 ### A platformer game using the [Sunny Land][24] asset pack.
 
@@ -171,11 +175,23 @@ transform.Rotate(speed * Time.deltaTime);
 
 #### Regular enemies (Spheres).
 
-// TODO fill up here
+The second type of enemy created is a sphere shape with a metal texture that follows the player while keeping it's distance. The sphere has a satellite circling it that shoots the player at semi-random intervals controlled from the editor settings.
+
+This enemy is harder to kill than the capsules so the spawner generates less of them, currently, the game is set to generate at a ratio of 0.2/0.8 favouring the capsules, though the generation does use a randomizer and we could have more of one type at any given time.
+
+![Sphere type enemies](res/sphere-enemy.jpg)
+
+_Sphere type enemy._
 
 #### Bosses.
 
-// TODO fill this up.
+At the end of every campaign scene waits a boss. Currently the game only uses one design, but it would be easy to add more just by changing the model used.
+
+![Boss screen capture](res/boss.jpg)
+
+_Boss type enemy._
+
+The bosses are highly configurable from within the editor, grab them from the prefab folder and drop them in a scene and, configuring a few parameters, like the number of shots, the frequency and the speed of the bullets, and you can have a boss that is easy, or almost impossible, to beat.
 
 ### User interface.
 
@@ -199,9 +215,11 @@ During the development of this game, I learned that [we can use `Time.timeScale`
 Time.timeScale = 0;
 ```
 
-An overlay was used to present the user with the _pause_ options, namely **quit** and **start**.
+An overlay is used to let the user decide what to do after the pause: **quit** the game, **resume** the game at the point we left it and **restart** a new game, from the menu page.
 
-![Pause Overlay](./res/pause-overlay.png)
+![Pause Overlay](./res/pause-overlay.jpg)
+
+_Pause overlay._
 
 The game is paused while the screen is visible. In **mobile** clicking the back button triggers the pause.
 
@@ -258,6 +276,17 @@ At the same time, I was looking for ways to persist my player state between scen
 At that point, I decided to give a new idea a try, since it seemed that I didn't need most of the UI objects to persist, and instead needed the `Player` to be aware about it's state on the game, not only in the current scene, I decided to switch the `DontDestroyOnLoad` from the UI to the Player, and created a new `PlayerState` class dedicated solely to store, and share, information about the player's current state.
 
 The change paid off immediately, `PlayerState` turned out to be very simple, clear and effective, and `Game` quickly lost half it's size and two thirds of its complexity, becoming much more manageable and easier to use and modify.
+
+## Looking forward.
+
+Since we started with a very modular game that takes place in an open world, there are many features we can add:
+
+- Entire campaigns.
+- Enemy types.
+- Different player weapons.
+- Player defenses, like a force field.
+
+And these are just some ideas, the possibilities really seem endless.
 
 ## Attributions.
 

@@ -84,6 +84,7 @@ public class Game : MonoBehaviour
     public void NewGame()
     {
         // Make sure we destroy the player to get a new one
+        Time.timeScale = 1;
         Destroy(PlayerState.Instance.gameObject);
         SceneManager.LoadScene("Menu");
     }

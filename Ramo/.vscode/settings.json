@@ -68,6 +68,7 @@
         "Mathf",
         "Nobiax",
         "Polybrush",
+        "RAMO",
         "Sakari",
         "Scroller",
         "Yughues",
@@ -75,6 +76,7 @@
         "peasy",
         "platformer",
         "platformers",
-        "powerups"
+        "powerups",
+        "randomizer"
     ]
 }
