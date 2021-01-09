@@ -44,7 +44,9 @@ public class AsteroidGenerator : MonoBehaviour
                 Vector3 spawnOffset = distance * direction;
                 // Adjust offsets
                 var y = Random.Range((-1 * maxYOffset), maxYOffset);
-                var z = Random.Range(minZOffset, maxZOffset);
+                // Get a random positive or negative Z clearing z=0 by the given offset.
+                var z = Random.Range(minZOffset, maxZOffset) * 
+                    (Random.value > 0.5 ? -1 : 1);
                 spawnOffset += new Vector3(0, y, z);
                 GameObject asteroid = Instantiate(
                     asteroids[index], 

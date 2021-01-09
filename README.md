@@ -199,6 +199,14 @@ Level 2 does not introduce any new elements but speeds up the game, starting to 
 
 Introduces the new enemy type _sphere_ and it speeds up the spawning interval to between 1 and 8 seconds. Boss fires every 0.5 to 1 second, 5 bullets that move a bit faster than on previous levels.
 
+#### Level 4: Asteroid field.
+
+The boss and enemy spawner settings are similar to the previous level, the spawner has a slightly wider generation span along the `Y` axis, to make enemies harder to detect, and a slightly lower `maxWait` value.
+
+The addded element in this level comes from the higher number of asteroids being generated, that help hide enemies from the player's field of vision, giving them less time to react.
+
+![Asteroid field screen capture](res/asteroid-field.jpg)
+
 ## Issues found.
 
 ### DontDestroyOnLoad GameObject.
@@ -227,7 +235,7 @@ Some of the asteroids come from the free [Asteroids Pack][11] by [Mark Dion][12]
 
 #### Textures and materials.
 
-Most of the asteroids were created by hand using Unity's [Polybrush][15].
+Some of the asteroids were created by hand using Unity's [Polybrush][15].
 
 Metal texture from the [Yughues Free Metal Materials][19] asset by [Nobiax / Yughues][20].
 
@@ -241,6 +249,7 @@ The game uses music from the [Absolutely Free Music][13] asset by [Vertex Studio
 - Level 1: track no.6.
 - Level 2: track no.31.
 - Level 3: track no.36.
+- Level 4: track no.19.
 - Credits page: track no.1.
 
 Gunshot and laser sounds from the [Futuristic Gun Sound FX][16] asset by [MGWSoundDesign][17].
