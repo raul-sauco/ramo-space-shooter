@@ -207,6 +207,10 @@ The addded element in this level comes from the higher number of asteroids being
 
 ![Asteroid field screen capture](res/asteroid-field.jpg)
 
+#### Level 5: Argon.
+
+Being the final level at the moment, it presents the highest difficulties, spawner generates new enemies one each every 0.2 to 4 seconds, and boss fires 7 bullets every 0.1 to 1 second, the central bullet is aimed towards the player position on fire.
+
 ## Issues found.
 
 ### DontDestroyOnLoad GameObject.
@@ -250,7 +254,9 @@ The game uses music from the [Absolutely Free Music][13] asset by [Vertex Studio
 - Level 2: track no.31.
 - Level 3: track no.36.
 - Level 4: track no.19.
+- Level 5: track no.5.
 - Credits page: track no.1.
+- Extra Level, Mayhem: track no.32.
 
 Gunshot and laser sounds from the [Futuristic Gun Sound FX][16] asset by [MGWSoundDesign][17].
 
