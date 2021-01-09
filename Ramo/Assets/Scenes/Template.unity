@@ -1218,12 +1218,12 @@ PrefabInstance:
     - target: {fileID: 2505801222373106024, guid: b5cc65fb8975324e793030d967918979,
         type: 3}
       propertyPath: maxDelay
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2505801222373106024, guid: b5cc65fb8975324e793030d967918979,
         type: 3}
       propertyPath: minDelay
-      value: 0.1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2505801222373106028, guid: b5cc65fb8975324e793030d967918979,
         type: 3}

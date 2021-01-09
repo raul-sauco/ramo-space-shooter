@@ -29,7 +29,6 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         string tag = collider.gameObject.tag;
-        Debug.Log("Bullet collided with " + tag);
         if (tag == "EnemyCapsule" || tag == "Boss" || tag == "EnemyDefense" ||
             tag == "Player" || tag == "EnemySphere")
         {

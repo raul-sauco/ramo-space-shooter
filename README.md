@@ -38,7 +38,7 @@ With these guidelines in place, I started looking at options.
 
 ### A bubble-shooter.
 
-![Bubble shooter screen](res/bubble-shooter.webp)
+![Bubble shooter screen](res/bubble-shooter.jpeg)
 
 **Why?** Cool concept, very different from the platformer dynamic but it seems like it should be possible to keep it simple and create a playable game within the time boundary given.
 
@@ -119,7 +119,7 @@ Ideally, we want the nebula backdrop to scroll even slower than the farthest sta
 
 ![Nebula comparison](res/nebulas.png)
 
-> Nebula backdrops make it easy to create compelling level backdrops.
+_Nebula backdrops make it easy to create compelling level backdrops._
 
 ### World navigation.
 
@@ -127,7 +127,7 @@ The game aims to be a side-scroller space-shooter with a twist, part of that twi
 
 At the moment, each level only has one mission, _find the boss and destroy it_, since the play takes place in an open world, we need to give the player some help accomplishing the task, some indication of wherein lays the _boss_, we can use an on-screen arrow that points in the bosses' direction to accomplish that. The result will look as follows:
 
-// TODO screen capture with arrow here.
+![Pointer arrow example](res/pointer-arrow.jpg)
 
 ### Enemies.
 
@@ -195,6 +195,10 @@ There are some _obstacle_ objects, but none of them is in the player's way.
 
 Level 2 does not introduce any new elements but speeds up the game, starting to hint at the fast-pace dynamic. Spawning interval is set between 2 and 10 seconds and boss fires every 0.5 to 1 second, still only 3 bullets.
 
+#### Level 3: Air marshall.
+
+Introduces the new enemy type _sphere_ and it speeds up the spawning interval to between 1 and 8 seconds. Boss fires every 0.5 to 1 second, still only 3 bullets.
+
 ## Issues found.
 
 ### DontDestroyOnLoad GameObject.
@@ -236,6 +240,7 @@ The game uses music from the [Absolutely Free Music][13] asset by [Vertex Studio
 - Title page: track no.11.
 - Level 1: track no.6.
 - Level 2: track no.31.
+- Level 3: track no.36.
 - Credits page: track no.1.
 
 Gunshot and laser sounds from the [Futuristic Gun Sound FX][16] asset by [MGWSoundDesign][17].
