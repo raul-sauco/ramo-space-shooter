@@ -167,7 +167,7 @@ At the start of the game, is good to offer a simple interface that entices users
 
 #### Pause overlay.
 
-During the development of this game, I learnt that [we can use `Time.timeScale`][8] as an easy way to pause any game activities that are related with game time, which in this game means all of the activities, effectively giving us a way to pause/restart the game using one line of code.
+During the development of this game, I learned that [we can use `Time.timeScale`][8] as an easy way to pause any game activities that are related with game time, which in this game means all of the activities, effectively giving us a way to pause/restart the game using one line of code.
 
 ```c#
 Time.timeScale = 0;

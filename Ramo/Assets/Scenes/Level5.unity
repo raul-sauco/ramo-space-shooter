@@ -187,7 +187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &221556314
 GameObject:
@@ -288,6 +288,11 @@ PrefabInstance:
       propertyPath: m_text
       value: 'LEVEL 5: ARGON'
       objectReference: {fileID: 0}
+    - target: {fileID: 5943160749255827363, guid: 3b84ab48be3bf5558afaa7ade5b76324,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5943160749865994449, guid: 3b84ab48be3bf5558afaa7ade5b76324,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -326,7 +331,7 @@ PrefabInstance:
     - target: {fileID: 5943160749865994449, guid: 3b84ab48be3bf5558afaa7ade5b76324,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5943160749865994449, guid: 3b84ab48be3bf5558afaa7ade5b76324,
         type: 3}
@@ -400,7 +405,7 @@ PrefabInstance:
     - target: {fileID: 2593138143014059051, guid: 6f0377977229fdf56a4f65d2ca8c9987,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2593138143014059051, guid: 6f0377977229fdf56a4f65d2ca8c9987,
         type: 3}
@@ -684,7 +689,7 @@ Transform:
   - {fileID: 1306628258}
   - {fileID: 1638521222}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &1053273332
 LightingSettings:
@@ -1334,7 +1339,7 @@ PrefabInstance:
     - target: {fileID: 8235662685460274224, guid: 9ed4cbc6b44f113daabad329e5fdb0da,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8235662685460274224, guid: 9ed4cbc6b44f113daabad329e5fdb0da,
         type: 3}

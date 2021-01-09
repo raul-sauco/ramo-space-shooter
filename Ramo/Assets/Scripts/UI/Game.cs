@@ -9,14 +9,17 @@ public class Game : MonoBehaviour
 {
     // Set on inspector because it is non active at game start.
     [SerializeField] private GameObject pauseOverlay;
+    [SerializeField] private GameObject gameOverOverlay;
     [SerializeField] private GameObject levelCompleteOverlay;
     [SerializeField] private GameObject loadingOverlay;
     [SerializeField] private GameObject loadNextOverlay;
 
     private bool isGameActive;
+    private bool isGameOver;
     private bool isLevelCompleted;
     // Keep a reference to unsubscribe.
     private Boss bossScript;
+    private Player playerScript;
 
     #region lifecycle
 
@@ -25,14 +28,16 @@ public class Game : MonoBehaviour
     {
         isLevelCompleted = false;
         isGameActive = true;
+        isGameOver = false;
         SubscribeToBossDestroyedEvent();
+        SubscribeToPlayerDestroyedEvent();
     }
 
     // Update is called once per frame
     void Update()
     {
         // KeyCode.Escape also maps to Android back button.
-        if (Input.GetKeyDown(KeyCode.Escape)) 
+        if (!isGameOver && Input.GetKeyDown(KeyCode.Escape)) 
         {
             TogglePause();
         }
@@ -45,11 +50,17 @@ public class Game : MonoBehaviour
         }
     }
 
-    // Clean up before the object is disabled.
-    void OnDisable()
+    // Clean up before the object is destroyed.
+    void OnDestroy()
     {
         if (bossScript != null)
+        {
             bossScript.OnDestroyed -= BossDestroyedCallback;
+        }
+        if (playerScript != null)            
+        {
+            playerScript.OnDestroyed -= PlayerDestroyedCallback;
+        }
     }
 
     #endregion  // Lifecycle
@@ -68,6 +79,13 @@ public class Game : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+    }
+
+    public void NewGame()
+    {
+        // Make sure we destroy the player to get a new one
+        Destroy(PlayerState.Instance.gameObject);
+        SceneManager.LoadScene("Menu");
     }
 
     public void Quit()
@@ -95,6 +113,23 @@ public class Game : MonoBehaviour
             Debug.LogWarning("Could not find scene's boss GameObject");
     }
 
+    // If the player character is destroyed, the game is over.
+    void SubscribeToPlayerDestroyedEvent()
+    {
+        GameObject player = PlayerState.Instance.gameObject;
+        if (player != null)
+        {
+            playerScript = player.GetComponent<Player>();
+            if (playerScript != null)
+            {
+                playerScript.OnDestroyed += PlayerDestroyedCallback;
+            }
+        } else
+        {
+            Debug.LogWarning("Could not find scene's player GameObject");
+        }
+    }
+
     // The default behaviour is to mark the level as completed when the boss
     // is destroyed.
     private void BossDestroyedCallback()
@@ -102,6 +137,13 @@ public class Game : MonoBehaviour
         levelCompleteOverlay.SetActive(true);
         loadNextOverlay.SetActive(true);
         isLevelCompleted = true;
+    }
+
+    // Default game behaviour when player character is destroyed.
+    private void PlayerDestroyedCallback()
+    {
+        isGameOver = true;
+        gameOverOverlay.SetActive(true);
     }
 
     // Load the next scene in the build settings.

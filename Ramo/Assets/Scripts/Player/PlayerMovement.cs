@@ -15,7 +15,15 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();   
+        rb = GetComponent<Rigidbody>();  
+        GameObject go = GameObject.FindWithTag("FloatingJoystick");
+        if (go != null)
+        {
+            joystick = go.GetComponent<Joystick>();
+        } else 
+        {
+            Debug.LogWarning("Joystick is null and couldn't find Joystick game object in scene");
+        } 
     }
 
     void Update()
@@ -41,9 +49,14 @@ public class PlayerMovement : MonoBehaviour
             ForceMode.Force);
     }
 
+    // Calculate Y force adding all entry methods.
     private float calculateForceY()
     {
-        var push = joystick.Vertical + Input.GetAxisRaw("Vertical");
+        var push = Input.GetAxisRaw("Vertical");
+        if (joystick != null)
+        {
+            push += joystick.Vertical;
+        }
         if (push > 0 && rb.velocity.y < maxVelocity)
             return push;
         if (push < 0 && rb.velocity.y > (-1 * maxVelocity))
@@ -51,9 +64,14 @@ public class PlayerMovement : MonoBehaviour
         return 0;
     }
 
+    // Calculate X force adding all entry methods.
     private float calculateForceX()
     {
-        var push = joystick.Horizontal + Input.GetAxisRaw("Horizontal");
+        var push = Input.GetAxisRaw("Horizontal");
+        if (joystick != null)
+        {
+            push += joystick.Horizontal;
+        }
         if (push > 0 && rb.velocity.x < maxVelocity)
             return push;
         if (push < 0 && rb.velocity.x > (-1 * maxVelocity))

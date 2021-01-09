@@ -15,6 +15,7 @@ TagManager:
   - FloatingJoystick
   - EnemySphere
   - EnemyDefense
+  - PlayerSpaceShuttle
   layers:
   - Default
   - TransparentFX

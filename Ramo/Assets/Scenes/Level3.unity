@@ -288,6 +288,11 @@ PrefabInstance:
       propertyPath: m_text
       value: 'LEVEL 3: AIR MARSHALL'
       objectReference: {fileID: 0}
+    - target: {fileID: 5943160749255827363, guid: 3b84ab48be3bf5558afaa7ade5b76324,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5943160749865994449, guid: 3b84ab48be3bf5558afaa7ade5b76324,
         type: 3}
       propertyPath: m_LocalPosition.x

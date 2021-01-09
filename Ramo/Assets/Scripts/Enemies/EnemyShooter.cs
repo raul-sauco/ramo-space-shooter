@@ -27,6 +27,7 @@ public class EnemyShooter : MonoBehaviour
         } else
         {
             Debug.LogWarning("Could not find player object");
+            Destroy(gameObject);
         }    
     }
 
@@ -47,7 +48,7 @@ public class EnemyShooter : MonoBehaviour
     // Shoot towards the target
     private IEnumerator Attack()
     {
-        while (true)
+        while (target != null)
         {
             shootSfx.Play();
             GameObject bullet = Instantiate(bulletPrefab, 

@@ -6,6 +6,9 @@ using UnityEngine.UI;
 /// </summary>
 public class Player : MonoBehaviour
 {
+    public delegate void Destroyed();
+    public event Destroyed OnDestroyed;
+
     [SerializeField] private GameObject explossionPrefab;
     [SerializeField] private GameObject healthBar;
     [SerializeField] private float health = 100f;
@@ -49,13 +52,20 @@ public class Player : MonoBehaviour
     private void DestroySelf()
     {
         isActive = false;
+        // Destroy all children.
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
         Vector3 position = new Vector3(transform.position.x, 
             transform.position.y, transform.position.z - 4);
         transform.localScale = new Vector3(0,0,0);
         explossionFx = Instantiate(explossionPrefab, position, transform.rotation);
         Destroy(explossionFx, 2f);
-        Destroy(gameObject, 2.5f);
-        // Todo notify game.
+        if (OnDestroyed != null)
+        {
+            OnDestroyed();
+        }
     }
 
     private void ColorizeHealthBar(float remainingHealth)

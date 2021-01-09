@@ -283,18 +283,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 566779384916138266, guid: 3b84ab48be3bf5558afaa7ade5b76324,
-        type: 3}
-      propertyPath: m_text
-      value: 'MAYHEM!
-
-        SURVIVE AS LONG AS YOU CAN'
-      objectReference: {fileID: 0}
-    - target: {fileID: 5943160749255827363, guid: 3b84ab48be3bf5558afaa7ade5b76324,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5943160749865994449, guid: 3b84ab48be3bf5558afaa7ade5b76324,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -364,6 +352,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2592546752037754519, guid: 6f0377977229fdf56a4f65d2ca8c9987,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerSpaceShuttle
+      objectReference: {fileID: 0}
     - target: {fileID: 2593138143014059049, guid: 6f0377977229fdf56a4f65d2ca8c9987,
         type: 3}
       propertyPath: m_Name
