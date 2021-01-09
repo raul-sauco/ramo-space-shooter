@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 335ac90812b46763abc0bdd2b37405af
+  - enabled: 1
+    path: Assets/Scenes/Survival.unity
+    guid: c96214734585178f484e2366351c2534
   - enabled: 0
     path: Assets/Scenes/Template.unity
     guid: b4d6cbb04a4873729b404e0e9124f239

@@ -211,6 +211,14 @@ The addded element in this level comes from the higher number of asteroids being
 
 Being the final level at the moment, it presents the highest difficulties, spawner generates new enemies one each every 0.2 to 4 seconds, and boss fires 7 bullets every 0.1 to 1 second, the central bullet is aimed towards the player position on fire.
 
+#### Extra survival level: Mayhem.
+
+This level is an example of interesting variations that we can generate with the modular architecture that the game components have. By removing the _Boss_ and so the _mission_ element of a level, we can completely change the dynamic and create a _melee_ style level where the objective is to survive as long as possible.
+
+To make survival more complicated, there are two **Spawner** elements, one at the usual position in front of the player, generating enemies much quicker than during the regular game levels, and one back from the player, generating less enemies, but enough for them having to account for this extra difficulty.
+
+**Mayhem** is a simple level where we have removed most of its elements but, due to its _different_ nature, is a very fun level to play.
+
 ## Issues found.
 
 ### DontDestroyOnLoad GameObject.
