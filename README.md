@@ -8,11 +8,13 @@ Choosing a theme for the game is probably the single decision that will bear the
 
 1. The game had to be about a subject I liked myself. There are a few reasons for this, but the most obvious are that you will enjoy more the development process, and that you will be more familiar with what makes a good game.
 2. Be conservative, the development process will, very likely, be harder than you expect. If you choose an objective that is too ambitious, you are likely to either never finish the game or to have so many different aspects to worry about that you will not have the resources to implement every aspect properly.
-3. The most successful games are not necessarily the most innovative ones, usually they follow a well established pattern but introduce a new twist to the well known pattern. But still fall inside a category that is familiar to players.
+3. The most successful games are not necessarily the most innovative ones, usually they follow a well established pattern; "introduce a new twist while still falling inside a category that is familiar to players".
 
 With these guidelines in place, I started looking at options.
 
-### A platformer game using the [Sunny Land](https://assetstore.unity.com/packages/2d/characters/sunny-land-103349) asset pack.
+### A platformer game using the [Sunny Land][24] asset pack.
+
+![Sunny land screen](res/sunny-land.png)
 
 **Why?** This is something that I kept thinking about while developing the Mario-like game for the previous exercises, this asset pack looked fun to work with. I had just developed a pretty complete platformer game, most of that experience would help develop a better game if I had chosen this option.
 
@@ -20,17 +22,31 @@ With these guidelines in place, I started looking at options.
 
 ### A Lemmings style game.
 
+![Lemmings screen](res/lemmings.jpeg)
+
 **Why?** This was one of my favorite games back on its day, and I feel like it could still be very fun to play even in the original form, even more so with some twists.
 
 **Why not?** This game introduces many aspects that are very different to the style that I developed before. I wasn't completely sure I could produce a good quality game in the amount of time available.
 
 ### An break-bricks style game.
 
+![Break bricks screen](res/break-bricks.jpeg)
+
 **Why?** This seems like a simple concept that should be fairly simple to implement. Once you have a playable game, you can introduce more variations to the _powerups_ and _bricks_ to make the game more interesting.
 
 **Why not?** I feel like, with this style of game, most of the functionality could be implemented in-house, and I felt like experimenting with some packages that added functionality to the game, like particle systems, Cinemachine and other assets from the **Unity Asset Store**.
 
+### A bubble-shooter.
+
+![Bubble shooter screen](res/bubble-shooter.webp)
+
+**Why?** Cool concept, very different from the platformer dynamic but it seems like it should be possible to keep it simple and create a playable game within the time boundary given.
+
+**Why not?** It was a close call, there wasn't really a reason why not, finally I thought that the space shooter would be more dynamic and more fun to play.
+
 ### A space shooter.
+
+![Space shooter screen](res/space-shooter.jpeg)
 
 **Why?** Offers the possibility to build a fast-paced game with nice imagery and lots of visual effects. I couldn't really find many points against this theme. It could prove to be too complex, but it seems like it should be possible to provide, at the very least, a few playable levels in the amount of time provided. So this is the theme I decided to develop.
 
@@ -38,11 +54,27 @@ With these guidelines in place, I started looking at options.
 
 In this case, I think the visual part of the game is going to be very important, it makes sense to build the basic functionality first, without worrying too much about the looks, and then try imagery on to see what it looks like when the game is running.
 
-We will start by creating a `Player` GameObject and giving it a controller. From the beginning we are going to give the game a **mobile first** approach, so the game will get mobile controls and any actions available have to be operable by touch.
-
 The objective is to create a space shooter that runs in an open world where the player has to complete one mission per level. As the player approaches the level's objective, it will become harder to survive.
 
 Levels should be progressively harder. The player should be able to learn about the enemies in earlier levels to help survive later levels.
+
+We will start by creating a `Player` GameObject and giving it a controller. From the beginning we are going to give the game a **mobile first** approach, so the game will get mobile controls and any actions available have to be operable by touch.
+
+Next will come the _backdrop_ the game is set against, we can keep the backdrop small and make it follow the player using some _parallax_ technique.
+
+After that we will add enemies with different characteristics.
+
+Then we can create a UI.
+
+Last step would be to add details, music, sound effects, improve the lighting, check physics work as expected and other post-production aspects.
+
+Once we have a few basic blocks, creating new levels should be easy:
+
+- Create a new scene.
+- Drop a few components.
+- Adjust a few parameters in the scene, from the editor if possible.
+
+Ideally, that should be all that is needed to create new playable levels.
 
 ## Work done.
 
@@ -52,8 +84,8 @@ Levels should be progressively harder. The player should be able to learn about 
 - Each level is an open world, the player can choose to get farther away from the objective.
 - Each level has an objective. Survival should get progressively harder as the player approaches the objective.
 - The camera uses the _perspective_ view, to give some depth to the game. But all game interactions happen on `z=0` making it a 2D game.
-- Background is auto-generated.
-- Enemies, except for the level's _boss_ are auto-generated.
+- Background scrolls with the player.
+- Enemies, except for the level's _boss_ are auto-generated according to some parameters.
 
 ### Star background.
 
@@ -251,3 +283,4 @@ Inspiration for the circular light movement from this [tutorial][18].
 [21]: https://gitlab.com/raul.sauco/prog2D-practica/-/blob/master/Ramo/Assets/Scripts/Background/Spinner.cs
 [22]: https://assetstore.unity.com/packages/audio/music/electronic/deep-in-space-88071
 [23]: https://assetstore.unity.com/publishers/27455
+[24]: https://assetstore.unity.com/packages/2d/characters/sunny-land-103349
