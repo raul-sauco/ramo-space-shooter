@@ -62,18 +62,20 @@ public class Spawner : MonoBehaviour
                 {
                     setter.target = target;
                 }
-            } else 
-            {
-                // TODO Get the enemy script and assign the target.
             }
+            // Other enemies find their own target.
             yield return new WaitForSeconds(spawnWait);
         }  
     }
 
     private int CalculateWeightedRandomEnemyType()
     {
-        // 20% chance getting a sphere type enemy, 80% a capsule.
-        var rand = Random.Range(0,100);
-        return rand > 20 ? 0 : 1;
+        if (enemies.Length == 2)
+        {        
+            // 20% chance getting a sphere type enemy, 80% a capsule.
+            var rand = Random.Range(0,100);
+            return rand > 20 ? 0 : 1;
+        }
+        return 0;
     }
 } 

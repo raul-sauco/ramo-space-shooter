@@ -10,4 +10,10 @@ public class RandomRotator : MonoBehaviour
     {
         GetComponent<Rigidbody>().angularVelocity = Random.insideUnitSphere * tumble;
     }
+
+    // Let spawners set the tumble value.
+    public void SetTumble(float t)
+    {
+        tumble = t;
+    }
 }

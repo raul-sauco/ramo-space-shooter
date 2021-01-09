@@ -197,7 +197,7 @@ Level 2 does not introduce any new elements but speeds up the game, starting to 
 
 #### Level 3: Air marshall.
 
-Introduces the new enemy type _sphere_ and it speeds up the spawning interval to between 1 and 8 seconds. Boss fires every 0.5 to 1 second, still only 3 bullets.
+Introduces the new enemy type _sphere_ and it speeds up the spawning interval to between 1 and 8 seconds. Boss fires every 0.5 to 1 second, 5 bullets that move a bit faster than on previous levels.
 
 ## Issues found.
 
