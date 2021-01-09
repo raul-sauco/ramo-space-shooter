@@ -10,11 +10,15 @@ Choosing a theme for the game is probably the single decision that will bear the
 2. Be conservative, the development process will, very likely, be harder than you expect. If you choose an objective that is too ambitious, you are likely to either never finish the game or to have so many different aspects to worry about that you will not have the resources to implement every aspect properly.
 3. The most successful games are not necessarily the most innovative ones, usually they follow a well established pattern; "introduce a new twist while still falling inside a category that is familiar to players".
 
-With these guidelines in place, I started looking at options.
+With these guidelines in place, I started looking at options, but, before we look at what these options were and the decision process, here is the final result.
+
+// TODO gameplay screencap.
 
 ### A platformer game using the [Sunny Land][24] asset pack.
 
 ![Sunny land screen](res/sunny-land.png)
+
+_The asset store has really good resources for 2D platformers, amongst them the Sunny Land pack._
 
 **Why?** This is something that I kept thinking about while developing the Mario-like game for the previous exercises, this asset pack looked fun to work with. I had just developed a pretty complete platformer game, most of that experience would help develop a better game if I had chosen this option.
 
@@ -24,6 +28,8 @@ With these guidelines in place, I started looking at options.
 
 ![Lemmings screen](res/lemmings.jpeg)
 
+_The classic Lemmings game, first in Amiga then ported to other systems._
+
 **Why?** This was one of my favorite games back on its day, and I feel like it could still be very fun to play even in the original form, even more so with some twists.
 
 **Why not?** This game introduces many aspects that are very different to the style that I developed before. I wasn't completely sure I could produce a good quality game in the amount of time available.
@@ -31,6 +37,8 @@ With these guidelines in place, I started looking at options.
 ### An break-bricks style game.
 
 ![Break bricks screen](res/break-bricks.jpeg)
+
+_Classic break-a-brick game, the image is from the pioneer Arkanoid._
 
 **Why?** This seems like a simple concept that should be fairly simple to implement. Once you have a playable game, you can introduce more variations to the _powerups_ and _bricks_ to make the game more interesting.
 
@@ -40,6 +48,8 @@ With these guidelines in place, I started looking at options.
 
 ![Bubble shooter screen](res/bubble-shooter.jpeg)
 
+_A variation of the brick breaking genre, bubble shooting in all its variations._
+
 **Why?** Cool concept, very different from the platformer dynamic but it seems like it should be possible to keep it simple and create a playable game within the time boundary given.
 
 **Why not?** It was a close call, there wasn't really a reason why not, finally I thought that the space shooter would be more dynamic and more fun to play.
@@ -47,6 +57,8 @@ With these guidelines in place, I started looking at options.
 ### A space shooter.
 
 ![Space shooter screen](res/space-shooter.jpeg)
+
+_Space shooters come in all variants, from the very simple, like in the image, to incredibly complex, but all of them are fun to play._
 
 **Why?** Offers the possibility to build a fast-paced game with nice imagery and lots of visual effects. I couldn't really find many points against this theme. It could prove to be too complex, but it seems like it should be possible to provide, at the very least, a few playable levels in the amount of time provided. So this is the theme I decided to develop.
 
@@ -129,6 +141,8 @@ At the moment, each level only has one mission, _find the boss and destroy it_, 
 
 ![Pointer arrow example](res/pointer-arrow.jpg)
 
+_The use of an on-screen arrow allows to have, at the same time, an open-end world with mission mechanics._
+
 ### Enemies.
 
 The types of enemies that we will encounter on the level can be classified in two groups, regular enemies and bosses.
@@ -143,6 +157,8 @@ The _basic_ regular enemies are capsule shaped ships that do not fire any shots 
 
 ![Capsule enemies](res/capsule.png)
 
+_Capsule type enemies_
+
 As a material the capsules use material no.12 on the [Yughues Free Metal Materials][19] pack from the Unity asset store. To improve the look of the enemies I added a subtle point light, of the same color that the light sections of the material. The scenery is supposed to be an important part of the game, and the light from the _capsules_ reflecting on the background objects adds a very interesting flavor.
 
 To make the objects more dynamic, I added a [`Spinner` script][21] that initially I had planned to use only on background objects, like asteroids, to make them spin on place.
@@ -153,17 +169,27 @@ The script is very simple but effective. It takes a `speed` `Vector3` initializa
 transform.Rotate(speed * Time.deltaTime);
 ```
 
+#### Regular enemies (Spheres).
+
+// TODO fill up here
+
 #### Bosses.
 
-TODO fill this up.
+// TODO fill this up.
 
 ### User interface.
 
 #### Start menu.
 
-At the start of the game, is good to offer a simple interface that entices users to start the game as quick as possible. I opted for a simple interface with two options, _play_ and _quit_ and some special effects, like a point light that moves around the scene to give the impression of time moving.
+At the start of the game, is good to offer a simple interface that entices users to start the game as quick as possible. I opted for a simple interface with three options, _play_, _select level_ and _quit_ and some special effects, like a point light that moves around the scene to give the impression of time moving.
 
-![Main menu](res/main-menu.png)
+![Main menu](res/main-menu.jpg)
+
+_Main menu at the start of the game._
+
+![Select level](res/select-level.jpg)
+
+_Secondary menu that lets users play any level on the game._
 
 #### Pause overlay.
 

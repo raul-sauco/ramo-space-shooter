@@ -6,26 +6,80 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class Menu : MonoBehaviour
 {
-    [SerializeField] private Transform roamingLight;
-    [SerializeField] private float range = 30f;
-    [SerializeField] private float speed = 2f;
+    [SerializeField] private GameObject levelSelectOverlay;
+    [SerializeField] private GameObject menuOverlay;
+    [SerializeField] private GameObject loadingOverlay;
 
     void Update()
     {
-        if (roamingLight.position.x < range)
-            roamingLight.Translate(Vector3.right * speed * Time.deltaTime);
-        else
-            roamingLight.position = new Vector3(range * -1, 
-                roamingLight.position.y, roamingLight.position.z);
-    }
-
-    public void Play()
-    {
-        SceneManager.LoadScene("Level1");
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            // Default action is Play
+            Play();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape) && levelSelectOverlay.activeSelf)
+        {
+            levelSelectOverlay.SetActive(false);
+        }
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void ToggleLevelSelect()
+    {
+        levelSelectOverlay.SetActive(!levelSelectOverlay.activeSelf);
+    }
+
+    public void Play()
+    {
+        DisplayLoading();
+        SceneManager.LoadScene("Level1");
+    }
+
+    public void PlayLevel1()
+    {
+        DisplayLoading();
+        SceneManager.LoadScene("Level1");
+    }
+
+    public void PlayLevel2()
+    {
+        DisplayLoading();
+        SceneManager.LoadScene("Level2");
+    }
+
+    public void PlayLevel3()
+    {
+        DisplayLoading();
+        SceneManager.LoadScene("Level3");
+    }
+
+    public void PlayLevel4()
+    {
+        DisplayLoading();
+        SceneManager.LoadScene("Level4");
+    }
+
+    public void PlayLevel5()
+    {
+        DisplayLoading();
+        SceneManager.LoadScene("Level5");
+    }
+
+    public void PlaySurvival()
+    {
+        DisplayLoading();
+        SceneManager.LoadScene("Survival");
+    }
+
+    // Prepare to load a new scene.
+    private void DisplayLoading()
+    {
+        levelSelectOverlay.SetActive(false);
+        menuOverlay.SetActive(false);
+        loadingOverlay.SetActive(true);
     }
 }
