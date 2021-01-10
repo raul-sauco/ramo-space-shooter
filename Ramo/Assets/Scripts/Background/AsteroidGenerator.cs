@@ -1,7 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Procedural asteroid generator configurable from the Unity editor.
+/// </summary>
 public class AsteroidGenerator : MonoBehaviour
 {
     [SerializeField] GameObject[] asteroids;
@@ -27,13 +29,13 @@ public class AsteroidGenerator : MonoBehaviour
             StartCoroutine(nameof(Spawn));
         } else
         {
-            Debug.LogWarning("Boss GameObject could not find player");
+            Debug.LogWarning("AsteroidGenerator could not find player");
         }
     }
   
     private IEnumerator Spawn()  
     {  
-        while (true)  
+        while (target != null)  
         {
             int index = Random.Range(0, asteroids.Length);
             float distance = Random.Range(minDist, maxDist);

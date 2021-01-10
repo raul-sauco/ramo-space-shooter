@@ -343,6 +343,8 @@ Touch controls [tutorial][10].
 
 Inspiration for the circular light movement from this [tutorial][18].
 
+Video editing tutorials for the demo file from this [channel][25].
+
 [1]: https://www.youtube.com/watch?v=nGw_UBJQPDY
 [2]: https://www.youtube.com/watch?v=2jTY11Am0Ig
 [3]: https://assetstore.unity.com/publishers/34228
@@ -367,3 +369,4 @@ Inspiration for the circular light movement from this [tutorial][18].
 [22]: https://assetstore.unity.com/packages/audio/music/electronic/deep-in-space-88071
 [23]: https://assetstore.unity.com/publishers/27455
 [24]: https://assetstore.unity.com/packages/2d/characters/sunny-land-103349
+[25]: https://www.youtube.com/channel/UC5UAwBUum7CPN5buc-_N1Fw
