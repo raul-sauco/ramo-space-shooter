@@ -4,7 +4,7 @@ Final paper for the 2020/21 2D game programming course. Create a fully playable 
 
 ## Choosing a theme.
 
-Choosing a theme for the game is probably the single decision that will bear the biggest influence on the resulting game, so I decided to take as much time as needed. During the first few days of the decision process, I followed a few tutorials that offered advice for beginner and intermediate game developers, out of them I got the idea that a few points were key making a good decision:
+Choosing a theme for the game is probably the single decision that will bear the biggest influence on the resulting game, so I decided to take as much time as needed. During the first few days of the decision process, I followed a few tutorials that offered advice for beginner and intermediate game developers, out of them I got the idea that a few points were key to make a good decision:
 
 1. The game had to be about a subject I liked myself. There are a few reasons for this, but the most obvious are that you will enjoy more the development process, and that you will be more familiar with what makes a good game.
 2. Be conservative, the development process will, very likely, be harder than you expect. If you choose an objective that is too ambitious, you are likely to either never finish the game or to have so many different aspects to worry about that you will not have the resources to implement every aspect properly.
@@ -65,6 +65,16 @@ _A variation of the brick breaking genre, bubble shooting in all its variations.
 _Space shooters come in all variants, from the very simple, like in the image, to incredibly complex, but all of them are fun to play._
 
 **Why?** Offers the possibility to build a fast-paced game with nice imagery and lots of visual effects. I couldn't really find many points against this theme. It could prove to be too complex, but it seems like it should be possible to provide, at the very least, a few playable levels in the amount of time provided. So this is the theme I decided to develop.
+
+## How to play.
+
+At the start of the game the player sees a title page, click/touch the screen or press enter and it will display the menu. The screen has instructions for this.
+
+The menu lets users play from the start, select a level or quit. Buttons indicate their function.
+
+During the game, the player can control the _spaceship_ using the on-screen joystick and/or with the arrow keys. To _shoot_, both the space bar and a touch on the right side of the screen are valid.
+
+`ESC` pauses the game, displaying a dialog with instructions and three options, _continue_, _start a new game_ and _quit_.
 
 ## The development process outline.
 
@@ -285,6 +295,8 @@ Since we started with a very modular game that takes place in an open world, the
 - Enemy types.
 - Different player weapons.
 - Player defenses, like a force field.
+- Implementing a save mechanism.
+- Implementing an online score mechanism for both _points_ and _time survived_ on the different survival style levels.
 
 And these are just some ideas, the possibilities really seem endless.
 
@@ -296,7 +308,9 @@ And these are just some ideas, the possibilities really seem endless.
 
 The player's **space fighter** was crafted by [Devekros][3] and it is available at [this link][4] in the Unity Asset Store.
 
-The built in **UI elements** come from the [Techno Blue GUI Skin asset][9] on the asset store. The custom text was created following this [video tutorial][7].
+The built in **UI elements** come from the [Techno Blue GUI Skin asset][9] by [3d.rina][26] from the Unity Asset Store.
+
+The custom text was created following this [video tutorial][7].
 
 Some of the asteroids come from the free [Asteroids Pack][11] by [Mark Dion][12] on the Unity Asset Store.
 
@@ -370,3 +384,4 @@ Video editing tutorials for the demo file from this [channel][25].
 [23]: https://assetstore.unity.com/publishers/27455
 [24]: https://assetstore.unity.com/packages/2d/characters/sunny-land-103349
 [25]: https://www.youtube.com/channel/UC5UAwBUum7CPN5buc-_N1Fw
+[26]: https://assetstore.unity.com/publishers/2703
